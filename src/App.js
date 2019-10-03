@@ -3,6 +3,7 @@ import {BrowserRouter,Switch,Route} from 'react-router-dom';
 import Home from './components/layout/home';
 import SignIn from './components/auth/SignIn';
 import Dashboard from './components/dashboard/dashboard';
+import FormDetails from './components/form/formDetails';
 import './App.css';
 class App extends React.Component{
   render(){
@@ -11,7 +12,8 @@ class App extends React.Component{
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/urna" component={SignIn} />
-        <Route path="/urna/dashboard" component={Dashboard} />
+        <Route exact path="/urna/dashboard" component={Dashboard} />
+        <Route path="/urna/dashboard/form/:id" component={FormDetails} />
       </Switch>
       </BrowserRouter>
     )
