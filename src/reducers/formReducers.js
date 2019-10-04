@@ -8,7 +8,12 @@ const initState={
 }
 
 const formReducer=(state=initState,action)=>{
-    return state;
+    switch(action.type){
+        case 'UPDATE_FORM':
+            return state
+        default:
+            return state
+    }
 }
 
 export default formReducer;

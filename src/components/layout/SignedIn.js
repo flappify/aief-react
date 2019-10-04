@@ -6,7 +6,10 @@ class SignedIn extends React.Component{
     render()
     {
         return(
-            <Nav.Link href="/urna">Admin Control</Nav.Link>
+            <div>
+                <Nav.Link href="/urna">Admin Control</Nav.Link>
+                <Nav.Link href="/urna/dashboard">Dashboard</Nav.Link>
+            </div>
         )
     }
 }
