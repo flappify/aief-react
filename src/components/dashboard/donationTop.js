@@ -1,35 +1,16 @@
 import React from 'react';
-import {Card} from 'react-bootstrap';
-class DonationTop extends React.Component{
-    render()
-    {
+import DonationSummary from '../donation/donationSummary';
+const DonateTop=({donations})=>{
         return(
             <div>
-                <h1>Donations</h1>
-                <Card >
-                <Card.Body>
-                    <Card.Title>Name</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Amount</Card.Subtitle>
-                    <Card.Text>Date</Card.Text>
-                </Card.Body>
-            </Card>
-            <Card >
-            <Card.Body>
-                <Card.Title>Name</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Amount</Card.Subtitle>
-                <Card.Text>Date</Card.Text>
-            </Card.Body>
-        </Card>
-        <Card >
-        <Card.Body>
-            <Card.Title>Name</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Amount</Card.Subtitle>
-            <Card.Text>Date</Card.Text>
-        </Card.Body>
-    </Card>
+                <h1>Donation List</h1>
+                {donations && donations.map(donation=>{
+                    return(
+                        <DonationSummary donation={donation} key={donation.id}/>
+                    )
+                })}
             </div>
         )
-    }
 }
 
-export default DonationTop;
+export default DonateTop;

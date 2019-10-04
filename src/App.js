@@ -4,6 +4,7 @@ import Home from './components/layout/home';
 import SignIn from './components/auth/SignIn';
 import Dashboard from './components/dashboard/dashboard';
 import FormDetails from './components/form/formDetails';
+import firebase from './config/firebase';
 import './App.css';
 class App extends React.Component{
   render(){

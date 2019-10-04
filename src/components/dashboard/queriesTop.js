@@ -1,32 +1,17 @@
 import React from 'react';
-import {Card} from 'react-bootstrap';
-class QueriesTop extends React.Component{
-    render()
-    {
+import HelpSummary from '../helpdesk/helpdeskSummary';
+const QueriesTop=({helps})=>{
+    console.log(helps);
         return(
             <div>
-                <h1>Queries</h1>
-                <Card >
-                <Card.Body>
-                    <Card.Title>Name</Card.Title>
-                    <Card.Text>Date</Card.Text>
-                </Card.Body>
-            </Card>
-            <Card >
-            <Card.Body>
-                <Card.Title>Name</Card.Title>
-                <Card.Text>Date</Card.Text>
-            </Card.Body>
-        </Card>
-        <Card >
-        <Card.Body>
-            <Card.Title>Name</Card.Title>
-            <Card.Text>Date</Card.Text>
-        </Card.Body>
-    </Card>
+                <h1>Help Desk</h1>
+                {helps && helps.map(help=>{
+                    return(
+                        <HelpSummary help={help} key={help.id}/>
+                    )
+                })}
             </div>
         )
-    }
 }
 
 export default QueriesTop;
