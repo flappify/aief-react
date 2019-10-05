@@ -1,9 +1,6 @@
 const initState={
-    helps:[
-        {id:'1',name:'Rashid'},
-        {id:'2',name:'Zohaib'},
-        {id:'3',name:'Samir'},
-        {id:'4',name:'Saahil'},
+    helpDesk:[
+        {id:'1',name:"Md.Rashid"}
     ]
 }
 

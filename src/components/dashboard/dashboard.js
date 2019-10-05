@@ -6,11 +6,16 @@ import FormTop from './formTop';
 import DonationTop from './donationTop';
 import QueriesTop from './queriesTop';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom'
+import {firestoreConnect } from 'react-redux-firebase';
+import {compose} from 'redux';
 
 class Dashboard extends React.Component{
     render()
     {
-      const {helps,forms,donations}=this.props;
+      const {auth,helps,forms,donations}=this.props;
+      console.log(helps);
+      if(!auth.uid) return <Redirect to='/urna' />
         return(
             <div>
                 <AdminNav/>
@@ -31,10 +36,18 @@ class Dashboard extends React.Component{
 
 const mapStateToProps=(state)=>{
   return{
-    helps:state.help.helps,
-    forms:state.form.forms,
+    auth:state.firebase.auth,
+    helps:state.firestore.ordered.helpDesk,
+    forms:state.firestore.ordered.forms,
     donations:state.donate.donations,
   }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+      {collection:'forms',orderBy:['createdAt','asc']},
+      {collection:'donations',orderBy:['createdAt','desc']},
+      {collection:'helpDesk',orderBy:['dateTime','asc']},
+  ])
+)(Dashboard)

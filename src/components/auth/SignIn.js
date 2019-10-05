@@ -1,5 +1,9 @@
 import React from 'react';
 import {Form,Button} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {signIn} from '../../actions/authActions';
+import {Redirect} from 'react-router-dom';
+import NavBar from '../layout/Navbar';
 class SignIn extends React.Component{
     state={
         email:'',
@@ -12,12 +16,16 @@ class SignIn extends React.Component{
     }
     handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(this.state);
+        this.props.signIn(this.state);
     }
     render()
     {
+      const {authError,auth}=this.props
+      if(auth.uid) return <Redirect to='/urna/dashboard' />
         return(
-            <Form onSubmit={this.handleSubmit}>
+            <div>
+            <NavBar/>
+              <Form onSubmit={this.handleSubmit}>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" id="email" placeholder="Enter email" onChange={this.handleChange} />
@@ -33,9 +41,21 @@ class SignIn extends React.Component{
   <Button variant="primary" type="submit">
     Submit
   </Button>
+  <div className="red-text center">{authError ? <p>{authError}</p>:null}</div>
 </Form>
+            </div>
         )
     }
 }
-
-export default SignIn;
+const mapStateToProps=(state)=>{
+  return{
+      authError:state.auth.authError,
+      auth:state.firebase.auth
+  }
+}
+const mapDispathToProps=(dispatch)=>{
+  return{
+      signIn:(creds)=>dispatch(signIn(creds))
+  }
+}
+export default connect(mapStateToProps,mapDispathToProps)(SignIn);

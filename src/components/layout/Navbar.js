@@ -1,7 +1,6 @@
 import React from 'react';
 import {Nav,Navbar,NavDropdown} from 'react-bootstrap';
 import SignedIn from './SignedIn';
-
 class NavBar extends React.Component{
     render()
     {
@@ -34,6 +33,7 @@ class NavBar extends React.Component{
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
+      <Nav.Link href="/apply">Apply</Nav.Link>
       <Nav.Link href="#home">Conatct Us</Nav.Link>
       <SignedIn/>
     </Nav>
@@ -42,5 +42,4 @@ class NavBar extends React.Component{
         )
     }
 }
-
 export default NavBar;
