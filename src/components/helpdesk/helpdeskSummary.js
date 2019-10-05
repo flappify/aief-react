@@ -6,7 +6,7 @@ const HelpSummary=({help})=>{
             <Card >
                 <Card.Body>
                     <Card.Title>{help.name}</Card.Title>
-                    <Card.Text>Date</Card.Text>
+                    <Card.Text>Date:{help.dateTime}</Card.Text>
                 </Card.Body>
             </Card>
         )

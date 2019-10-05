@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {signOut} from '../../actions/authActions';
+import {Nav} from 'react-bootstrap';
 const SignOut=(props)=>{
     return(
-        <li><a onClick={props.signOut} href='/'>Log Out</a></li>
+        <Nav.Link href="/" onClick={props.signOut}>Log Out</Nav.Link>
     )
 }
 

@@ -7,7 +7,7 @@ const DonationSummary=({donation})=>{
                 <Card.Body>
                     <Card.Title>{donation.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">{donation.amt}</Card.Subtitle>
-                    <Card.Text>Date</Card.Text>
+                    <Card.Text>Date:</Card.Text>
                 </Card.Body>
             </Card>
         )

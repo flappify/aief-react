@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-
+import 'firebase/storage';
 var firebaseConfig = {
     apiKey: "AIzaSyBr4rgN0lMD9vGmqWtfWc1XBwxGyRVeDBg",
     authDomain: "aief-d.firebaseapp.com",
@@ -14,5 +14,4 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
   export default firebase;
