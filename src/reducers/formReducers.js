@@ -7,9 +7,15 @@ const formReducer=(state=initState,action)=>{
         case 'UPDATE_FORM':
             return state;
         case 'CREATE_FORM':
-            return state;
+            return{
+                ...state,
+                applyError:'Apply Success'
+            }
         case 'CREATE_FORM_ERROR':
-            return state;
+            return{
+                ...state,
+                applyError:'Apply Failed'
+            }
         default:
             return state;
     }
