@@ -8,6 +8,9 @@ class Form extends React.Component{
         name:"",
         email:"",
         phone:"",
+        curr_address:"",
+        per_address:"",
+        same_per:false,
         image:"",
         url:"",
         previewurl:"",
@@ -17,22 +20,6 @@ class Form extends React.Component{
         this.setState({
             [e.target.id]:e.target.value
         });
-    }
-    handleSubmit=(e)=>{
-        e.preventDefault();
-        const image = this.state.image;
-        const fileName=this.state.name+this.state.phone;
-        firebase.storage().ref(`images/${fileName}`).put(image)
-        firebase.storage().ref('images').child(fileName).getDownloadURL().then(url => {
-            console.log(url);
-            this.setState(()=>({
-                url:url,
-                image:fileName,
-                redirectToReferrer: true
-            }))
-            this.props.createForm(this.state)
-        })
-        
     }
     handleImageChange=(e)=>{
         if (e.target.files[0]) {
@@ -55,9 +42,48 @@ class Form extends React.Component{
             }
           }
     }
+    handlePerAddress=(e)=>{
+        if(this.state.same_per)
+        {
+            this.setState(() => ({
+                same_per:false,
+                per_address:this.state.per_address
+            }));
+        }
+        else{
+            this.setState(() => ({
+                same_per:true,
+                per_address:this.state.curr_address
+            }));
+        }
+        console.log(this.state.same_per);
+    }
+    handleSubmit=(e)=>{
+        e.preventDefault();
+        const image = this.state.image;
+        const fileName=this.state.name+this.state.phone;
+        firebase.storage().ref(`images/${fileName}`).put(image)
+        firebase.storage().ref('images').child(fileName).getDownloadURL().then(url => {
+            console.log(url);
+            this.setState(()=>({
+                url:url,
+                image:fileName,
+                redirectToReferrer: true
+            }))
+            this.props.createForm(this.state)
+        })
+        console.log(this.state);
+    }
+    
     render()
     {
-        const {applyError}=this.props
+        const {applyError}=this.props;
+        var per_value;
+        var same_per=this.state.same_per;
+        if(same_per)
+        {
+            per_value=this.state.curr_address;
+        }
         return(
                 <div className="container">
                     <form onSubmit={this.handleSubmit} className="white">
@@ -75,6 +101,15 @@ class Form extends React.Component{
                         <div className="input-field">
                             <label htmlFor="phone">Phone</label>
                             <input type="text" id="phone" onChange={this.handleChange} required/>
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="curr-address">Current Address</label>
+                            <input type="text" id="curr_address" onChange={this.handleChange} required/>
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="per-address">Permanent Address</label>
+                            <input type="checkbox" id="same_per_address" onChange={this.handlePerAddress}/>Same as current address
+                            <input type="text" id="per_address" value={per_value} onChange={this.handleChange} required/>
                         </div>
                         <div className="input-field">
                             <button >Submit</button>
