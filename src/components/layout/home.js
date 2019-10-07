@@ -1,11 +1,14 @@
 import React from 'react';
 import Navbar from './Navbar';
-
+import Events from "./events";
 class Home extends React.Component{
     render()
     {
         return(
-            <Navbar/>
+            <div>
+                <Navbar/>
+                <Events/>
+            </div>
         )
     }
 }
