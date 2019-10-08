@@ -1,12 +1,19 @@
 import React from 'react';
-
-class Events extends React.Component{
-    render()
-    {
+import EventSummary from '../events/eventSummary';
+import {Link} from 'react-router-dom';
+const Events=({events})=>{
         return(
-            <h1>hello</h1>
+            <div>
+                <h1>Events</h1>
+                {events && events.map(event=>{
+                    return(
+                        <Link to={'/events/'+event.id} key={event.id}>
+                        <EventSummary event={event} key={event.id}/>
+                        </Link>
+                    )
+                })}
+            </div>
         )
-    }
 }
 
 export default Events;

@@ -34,6 +34,7 @@ class NavBar extends React.Component{
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown>
       <Nav.Link href="/apply">Apply</Nav.Link>
+      <Nav.Link href="/donate">Donate</Nav.Link>
       <Nav.Link href="#home">Conatct Us</Nav.Link>
       <SignedIn/>
     </Nav>

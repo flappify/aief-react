@@ -15,6 +15,7 @@ class AdminNav extends React.Component{
       <Nav.Link href="/urna/dashboard/form">Forms</Nav.Link>
       <Nav.Link href="/urna/dashboard/donation">Donations</Nav.Link>
       <Nav.Link href="/urna/dashboard/helpdesk">Queries</Nav.Link>
+      <Nav.Link href="/urna/dashboard/CreateEvent">Create Event</Nav.Link>
       <Nav.Link href="/">Go Back to Website</Nav.Link>
       <SignOut profile={profile}/>
     </Nav>

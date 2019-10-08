@@ -262,7 +262,7 @@ class Form extends React.Component{
                             <p>If any member of the office bearer of our organization is found guilty of being involved in illegal activities, cheating, duping or misuse of his ID card including the name of the organization, our AIEF will take no reponsibility for that, the administration is free to take legal action against him/her. </p>
                             <input type="checkbox" id="accept" onChange={this.handleChange} required/>  I accept terms and conditions.
                         <div className="input-field">
-                            <button >Submit</button>
+                            <button type="submit" >Submit</button>
                         </div>
                         </div>
                        </div>
