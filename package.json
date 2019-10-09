@@ -13,8 +13,6 @@
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.10.1",
-    "react-paypal-button": "^4.1.1",
-    "react-paypal-button-v2": "^2.4.1",
     "react-redux": "^5.1.1",
     "react-redux-firebase": "^2.4.1",
     "react-router-dom": "^5.1.2",
