@@ -1,36 +1,44 @@
 import React from 'react';
-var Insta = require('instamojo-nodejs');
-class Donate extends React.Component{
-    handleClick=()=>{
-        const data = new Insta.PaymentData();
-        Insta.isSandboxMode(false);
-        data.purpose = "Test";
-        data.amount = 100;
-        data.buyer_name="Saahil";
-        data.redirect_url="localhost:3000/donate";
-        data.email="saahil@gmail.com";
-        data.phone="8017036489";
-        data.send_email=false;
-        data.webhook="http://www.example.com/webhook/";
-        data.send_sms=false;
-        data.allow_repeated_payments=false;
-        console.log(data);
-        Insta.setKeys("2174bc349768d79d753f828c9a81542d","6f9ca35591181fbc75ed27499d76a163");
-        Insta.createPayment(data, function(error, response) {
-            if (error) {
-              console.log(error);
-            } else {
-              // Payment redirection link at response.payment_request.longurl
-              console.log(response);
-            }
-          });
-    }
-    render()
-    {
-    return(
-        <button onClick={this.handleClick}>PAY</button>
-    )
+import PaypalExpressBtn from 'react-paypal-express-checkout';
+ 
+export default class Donate extends React.Component {
+    render() {
+        const onSuccess = (payment) => {
+            // Congratulation, it came here means everything's fine!
+            		console.log("The payment was succeeded!", payment);
+            		// You can bind the "payment" object's value to your state or props or whatever here, please see below for sample returned data
+        }
+        const onCancel = (data) => {
+            // User pressed "cancel" or close Paypal's popup!
+            console.log('The payment was cancelled!', data);
+            // You can bind the "data" object's value to your state or props or whatever here, please see below for sample returned data
+        }
+ 
+        const onError = (err) => {
+            // The main Paypal's script cannot be loaded or somethings block the loading of that script!
+            console.log("Error!", err);
+            // Because the Paypal's main script is loaded asynchronously from "https://www.paypalobjects.com/api/checkout.js"
+            // => sometimes it may take about 0.5 second for everything to get set, or for the button to appear
+        }
+ 
+        let env = 'production'; // you can set here to 'production' for production
+        let currency = 'INR'; // or you can set this value from your props or state
+        let total = 10; // same as above, this is the total amount (based on currency) to be paid by using Paypal express checkout
+        // Document on Paypal's currency code: https://developer.paypal.com/docs/classic/api/currency_codes/
+ 
+        const client = {
+            sandbox:'Ac-IsJnUj4a2f-reCxrYyuZgxxu0RB1IqAgQt-jjYoRzcYMV3SLWC85gf8ekhfJaYmIGD6ghiHRIQogd',
+            production: 'AaK6PSCmjFHprihIkeblnScs6KHN30mrd56BScD0jRvFHcyZrAfcdaytDDTDMYh7oN2HExaPjmioGCRt',
+        }
+        // In order to get production's app-ID, you will have to send your app to Paypal for approval first
+        // For sandbox app-ID (after logging into your developer account, please locate the "REST API apps" section, click "Create App"):
+        //   => https://developer.paypal.com/docs/classic/lifecycle/sb_credentials/
+        // For production app-ID:
+        //   => https://developer.paypal.com/docs/classic/lifecycle/goingLive/
+ 
+        // NB. You can also have many Paypal express checkout buttons on page, just pass in the correct amount and they will work!
+        return (
+            <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
+        );
     }
 }
-
-export default Donate;
