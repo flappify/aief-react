@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from "./Navbar";
+import Donate from './donate';
 class Donation extends React.Component{
  
     render()
@@ -7,7 +8,7 @@ class Donation extends React.Component{
         return(
             <div>
                 <NavBar/>
-                <h1>Hello</h1>
+                <Donate/>
             </div>
         )
     }
