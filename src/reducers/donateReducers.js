@@ -1,14 +1,24 @@
 const initState={
-    donations:[
-        {id:'1',name:'Rashid',amt:'10Lakh'},
-        {id:'2',name:'Zohaib',amt:'Infinity'},
-        {id:'3',name:'Samir',amt:'Youtube ka paisa'},
-        {id:'4',name:'Saahil',amt:'Not Interested'},
-    ]
+    donations:""
 }
 
 const donateReducer=(state=initState,action)=>{
-    return state;
+    switch(action.type){
+        case 'UPDATE_DONATE':
+            return state;
+        case 'CREATE_DONATE':
+            return{
+                ...state,
+                donateError:'Donation Done'
+            }
+        case 'CREATE_DONATION_ERROR':
+            return{
+                ...state,
+                donateError:'Donation Failed'
+            }
+        default:
+            return state;
+    }
 }
 
 export default donateReducer;

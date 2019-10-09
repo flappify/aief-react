@@ -1,45 +1,34 @@
 import React from 'react';
-import {Nav,Navbar,NavDropdown} from 'react-bootstrap';
 import SignedIn from './SignedIn';
+import "./layout.css";
 class NavBar extends React.Component{
     render()
     {
         return(
-            <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="/">AIEF</Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <NavDropdown title="About Us" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-      <NavDropdown title="Our Works" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-      <Nav.Link href="#home">Events</Nav.Link>
-      <NavDropdown title="Campaigns" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-      </NavDropdown>
-      <Nav.Link href="/apply">Apply</Nav.Link>
-      <Nav.Link href="/donate">Donate</Nav.Link>
-      <Nav.Link href="#home">Conatct Us</Nav.Link>
-      <SignedIn/>
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>
+            <div className="navbar">
+              <div className="og">
+                  <div className="og-logo">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/aief-d.appspot.com/o/aief%2Flogo%20(1).png?alt=media&token=1684f7d1-4644-441f-8c96-1b02a451b547" alt="Foundation Logo"/>
+                  </div>
+                  <div className="og-name">
+                    <h1>ALL INDIA EKTA FOUNDATION</h1>
+                  </div>
+              </div>
+              <div className="menu">
+                  <div className="menu-list">
+                    <ul>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="/about">About</a></li>
+                      <li><a href="/works">Works</a></li>
+                      <li><a href="/events">Events</a></li>
+                      <li><a href="/campaigns">Campaigns</a></li>
+                      <li><a href="/contact">Contact Us</a></li>
+                      <li><a href="/apply" className="apply">Apply</a></li>
+                      <li><a href="/donate" className="donate">Donate</a></li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
         )
     }
 }
