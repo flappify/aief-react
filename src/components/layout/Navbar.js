@@ -2,9 +2,32 @@ import React from 'react';
 import SignedIn from './SignedIn';
 import "./layout.css";
 class NavBar extends React.Component{
+    state={
+      menu:"none",
+    }
+
+
+    handleMenu=(e)=>{
+      e.preventDefault();
+      if(this.state.menu==="none")
+      {
+        this.setState({
+          menu:"block"
+        });
+      }
+      else{
+        this.setState({
+          menu:"none"
+        });
+      }
+    }
     render()
     {
+      const menu={
+        display:this.state.menu
+      }
         return(
+          <div>
             <div className="navbar">
               <div className="og">
                   <div className="og-logo">
@@ -17,18 +40,30 @@ class NavBar extends React.Component{
               <div className="menu">
                   <div className="menu-list">
                     <ul>
-                      <li><a href="/">Home</a></li>
-                      <li><a href="/about">About</a></li>
-                      <li><a href="/works">Works</a></li>
-                      <li><a href="/events">Events</a></li>
-                      <li><a href="/campaigns">Campaigns</a></li>
-                      <li><a href="/contact">Contact Us</a></li>
+                      <li><a href="/" className="active">Home</a></li>
+                      <li><a href="/vision">Our Vision</a></li>
                       <li><a href="/apply" className="apply">Apply</a></li>
                       <li><a href="/donate" className="donate">Donate</a></li>
+                      <li>
+                        <div className="hamburger" onClick={this.handleMenu}>
+                          <div className="line-1"></div>
+                          <div className="line-2"></div>
+                        </div>
+                      </li>
                     </ul>
                   </div>
               </div>
             </div>
+            <div className="full-menu" style={menu}>
+              <ul>
+               <li><a href="/works">Works</a></li>
+               <li><a href="/events">Events</a></li>
+               <li><a href="/campaign">Campaigns</a></li>
+               <li><a href="#helpdesk">Help Desk</a></li>
+               <SignedIn/>
+             </ul>
+           </div>
+        </div>   
         )
     }
 }

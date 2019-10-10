@@ -1,9 +1,14 @@
 import React from 'react';
 import Navbar from './Navbar';
-import Events from "./events";
+
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import {firestoreConnect } from 'react-redux-firebase';
+
+import Section1 from './section1';
+import Events from "./events";
+
+
 class Home extends React.Component{
     render()
     {
@@ -11,6 +16,7 @@ class Home extends React.Component{
         return(
             <div>
                 <Navbar/>
+                <Section1/>
                 <Events events={events}/>
             </div>
         )

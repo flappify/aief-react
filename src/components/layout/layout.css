@@ -5,17 +5,15 @@ li{
 }
 
 .navbar{
-    position:fixed;
-    top: 0;
-    z-index: 50;
     width: 100%;
     height: 120px;
-    background-color: #fef2e9;
+    background: #fff;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
+
 .navbar .og{
     display: flex;
     flex-direction: column;
@@ -28,6 +26,9 @@ li{
 
 .navbar .og .og-name h1{
     font-size: 1.2rem;
+    color: #000;
+    font-family: 'Muli', sans-serif;
+    font-weight: 600;
 }
 
 .navbar .menu .menu-list ul{
@@ -38,12 +39,102 @@ li{
 }
 
 .navbar .menu .menu-list ul li{
-    margin: 0 1.8rem;
+    margin: 0 1.5rem;
     margin-top: 0.5rem;
 }
 
 .navbar .menu .menu-list ul li a{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-family: 'Muli', sans-serif;
+    text-decoration: none;
+    color: #f58634;
+}
+.navbar .menu .menu-list ul li .active{
+    background-color: #f58634;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.25rem;
+}
+.navbar .menu .menu-list ul li .hamburger{
+    height: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    cursor: pointer;
+}
+.navbar .menu .menu-list ul li .hamburger .line-1,.navbar .menu .menu-list ul li .hamburger .line-2{
+    width: 1.8rem;
+    height: 0.25rem;
+    background-color: #f58634;
+}
+.navbar .menu .menu-list ul li .hamburger .line-1{
+    animation-name:line-1-back;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes line-1-back{
+    50%{
+        transform:rotate(360deg);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+.navbar .menu .menu-list ul li .hamburger .line-2{
+    animation-name:line-2-back;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes line-2-back{
+    50%{
+        transform:rotate(360deg);
+    }
+    100%{
+        transform:translateY(2px);
+    }
+}
+.navbar .menu .menu-list ul li .hamburger:hover .line-1{
+    animation-name:line-1;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes line-1{
+    20%{
+        transform:translateY(5px);
+    }
+    100%{
+        transform:rotate(180deg)translateY(-10px);
+    }
+}
+.navbar .menu .menu-list ul li .hamburger:hover .line-2{
+    animation-name:line-2;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: 2;
+}
+@keyframes line-2{
+    20%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:rotate(270deg)translate(2px,0px);
+    }
+}
+.full-menu{
+    position: absolute;
+    right:0;
+    width: 30%;
+    height: 100vh;
+    background-color: #fff;
+}
+.full-menu ul li a{
+    font-size: 2.5rem;
+    font-family: 'Muli', sans-serif;
+    color: #f58634;
     text-decoration: none;
 }
