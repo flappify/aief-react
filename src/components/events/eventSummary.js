@@ -1,7 +1,8 @@
 import React from 'react';
-import './events.css';
+import {Link} from 'react-router-dom';
 const EventSummary=({event})=>{
         return(
+            
             <div className="event" >
                 <div className="event-img">
                     <img src={event.url} alt="eventImage" />

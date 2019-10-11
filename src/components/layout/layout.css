@@ -1,19 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Domine&display=swap');
 
 html,body{
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #e6e6e6;
 }
 
 ::-webkit-scrollbar{
-    width: 5px;
-    background-color: transparent;
+    width:5px;
+    background-color:#000;
 }
 
 ::-webkit-scrollbar-thumb{
-    width: 5px;
-    border-radius: 5px;
+    border-radius: 2px;
     background-color: #f58634;
 }
 
@@ -23,7 +26,6 @@ li{
 
 .navbar{
     z-index: 9999;
-    position: fixed;
     width: 100%;
     height: 18vh;
     background: #fff;
@@ -148,8 +150,7 @@ li{
 }
 .full-menu{
     z-index: 9999;
-    position: fixed;
-    top: 18vh;
+    position: absolute;
     right:0;
     width: 30%;
     height: 82vh;
@@ -353,7 +354,7 @@ li{
 }
 
 .section3 .main .right img{
-    width: 450px;
+    height: 70vh;
     transform: translateY(-20px);
 }
 
@@ -435,27 +436,78 @@ li{
 }
 
 /*EVENTS*/
-
+.events{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.events h1{
+    font-size: 3rem;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+.events .event-list{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .event{
-    background-color:#d8d8d8b6;
+    background-color:#fff;
     width: 25vw;
-    height: 70vh;
+    height: 65vh;
     overflow: hidden;
+    margin:0 2rem 2rem 2rem;
+    border-radius: 4px;
 }
 .event .event-img img{
     width: 100%;
-    height: 40vh;
+    height: 30vh;
     object-fit: cover;
+    margin-bottom: 5px;
 }
 .event .event-details h1{
-    font-size:2.5rem;
+    font-size:1.8rem;
+    height: 50px;
+    overflow: hidden;
     text-align: center;
-    margin:0.5rem;
-    color: #c9c9c9;
+    margin:1rem 0;
+    color: #604338;
+    font-family: 'Domine', serif;
 }
 
 .event .event-details p{
-    font-size:1.5rem;
+    font-size:1rem;
+    height: 60px;
+    overflow: hidden;
     text-align: center;
     margin:0.5rem;
+    color: #98b4c0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.event .event-details h2{
+    font-size:1.2rem;
+    margin:1rem 0.5rem;
+    color: #000;
+    text-align: center;
+    font-family: 'Hepta Slab', serif;
+}
+.event .event-details h3{
+    font-size:1.2rem;
+    width: 100px;
+    height: 50px;
+    margin: 30px auto;
+    text-align: center;
+    line-height: 50px;
+    color: #000;
+    border: 2px solid #000;
+    border-radius:3px;
+    font-family: 'Open Sans', sans-serif;
 }

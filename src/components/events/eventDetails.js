@@ -17,10 +17,6 @@ const EventDetails=(props)=>{
       Description:{event.eventDesc}
     </Card.Text>
   </Card.Body>
-  <Card.Body>
-    <Card.Link href="#">Card Link</Card.Link>
-    <Card.Link href="#">Another Link</Card.Link>
-  </Card.Body>
 </Card>
         </div>
       )

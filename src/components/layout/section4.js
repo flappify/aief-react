@@ -14,7 +14,7 @@ class Section4 extends React.Component{
             dots:false,
           };
         return(
-            <div class="section4">
+            <div className="section4">
                 <div className="main">
                     <div className="top">
                         <h1>Our Works</h1>

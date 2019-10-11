@@ -25,7 +25,7 @@ class CreateEvent extends React.Component{
             const imageSize=image.size/1024;
             let reader = new FileReader();
             console.log(image);
-            if(image.type ==="image/jpeg" && imageSize <"300")
+            if(image.type ==="image/jpeg" && imageSize <"1000")
             {
                 reader.onloadend = () => {
                     this.setState({
