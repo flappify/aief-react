@@ -40,10 +40,10 @@ class NavBar extends React.Component{
               <div className="menu">
                   <div className="menu-list">
                     <ul>
-                      <li><a href="/" className="active">Home</a></li>
-                      <li><a href="/vision">Our Vision</a></li>
-                      <li><a href="/apply" className="apply">Apply</a></li>
-                      <li><a href="/donate" className="donate">Donate</a></li>
+                      <li className="primary-menu"><a href="/" className="active">Home</a></li>
+                      <li className="primary-menu"><a href="/vision">Our Vision</a></li>
+                      <li className="primary-menu"><a href="/apply" className="apply">Apply</a></li>
+                      <li className="primary-menu"><a href="/donate" className="donate">Donate</a></li>
                       <li>
                         <div className="hamburger" onClick={this.handleMenu}>
                           <div className="line-1"></div>
