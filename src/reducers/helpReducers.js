@@ -1,11 +1,23 @@
 const initState={
     helpDesk:[
-        {id:'1',name:"Md.Rashid"}
     ]
 }
 
 const helpReducer=(state=initState,action)=>{
-    return state;
+    switch(action.type){
+        case 'CREATE_HELPDESK':
+            return{
+                ...state,
+                submitError:'Submitted'
+            }
+        case 'CREATE_HELPDESK_ERROR':
+            return{
+                ...state,
+                submitError:'Submission Error'
+            }
+        default:
+            return state;
+    }
 }
 
 export default helpReducer;

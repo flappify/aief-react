@@ -1,15 +1,36 @@
 import React from 'react';
-
+import {connect} from 'react-redux';
+import {createHelpDesk} from '../../actions/helpDeskActions';
 class HelpDesk extends React.Component{
+
+    state={
+        name:"",
+        phone:"",
+        message:"",
+    }
+
+    handleChange=(e)=>{
+        this.setState({
+            [e.target.id]:e.target.value
+        });
+    }
+
+    handleSubmit=(e)=>{
+        e.preventDefault();
+        this.props.createHelpDesk(this.state);
+        console.log(this.state);
+    }
+
     render()
     {
+        const {submitError}=this.props;
         return(
             <div className="helpdesk">
                 <div className="main">
                     <div className="left">
                         <h1>GET IN TOUCH</h1>
-                        <form>
-                            <div>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="form-first">
                                 <div className="input-field">
                                     <label htmlFor="name">Name</label>
                                     <input type="text" id="name" onChange={this.handleChange} required/>
@@ -19,18 +40,36 @@ class HelpDesk extends React.Component{
                                     <input type="text" id="phone" onChange={this.handleChange} required/>
                                 </div>
                             </div>
-                            <div>
+                            <div className="form-last">
                                 <div className="input-field">
                                     <label htmlFor="message">Message</label>
                                     <input type="text" id="message" onChange={this.handleChange} required/>
                                 </div>
                             </div>
-                            <button>SEND</button>
+                            <div className="">
+                                <button type="submit" >SEND</button>
+                            </div>
                         </form>
+                        <div className="red-text center">{submitError ? <p>{submitError}</p>:null}</div>
                     </div>
                     <div className="right">
                         <h1>FOLLOW</h1>
-                        <div>
+                        <div className="social">
+                            <div className="social-icon">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <div className="social-icon">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                            <div className="social-icon">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                            <div className="social-icon">
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                            </div>
+                            <div className="social-icon">
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,4 +78,14 @@ class HelpDesk extends React.Component{
     }
 }
 
-export default HelpDesk;
+const mapStateToProps=(state)=>{
+    return{
+        submitError:state.help.submitError
+    }
+  }
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        createHelpDesk:(helpDesk)=>dispatch(createHelpDesk(helpDesk))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(HelpDesk);

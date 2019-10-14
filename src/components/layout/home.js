@@ -28,7 +28,6 @@ class Home extends React.Component{
                 <Events events={events}/>
                 <HelpDesk/>
                 <SupportSpeak/>
-                
             </div>
         )
     }
