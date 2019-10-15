@@ -43,32 +43,32 @@ class HelpDesk extends React.Component{
                             <div className="form-last">
                                 <div className="input-field">
                                     <label htmlFor="message">Message</label>
-                                    <input type="text" id="message" onChange={this.handleChange} required/>
+                                    <textarea id="message" onChange={this.handleChange} required/>
                                 </div>
                             </div>
-                            <div className="">
+                            <div className="submit-button">
                                 <button type="submit" >SEND</button>
                             </div>
                         </form>
-                        <div className="red-text center">{submitError ? <p>{submitError}</p>:null}</div>
+                        <div className="alert">{submitError ? <p>{submitError}</p>:null}</div>
                     </div>
                     <div className="right">
                         <h1>FOLLOW</h1>
                         <div className="social">
                             <div className="social-icon">
-                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="https://stackoverflow.com/questions/15865982/it-is-possible-to-expand-a-textarea-only-with-css" target="_blank"><i class="fab fa-instagram"></i></a>
                             </div>
                             <div className="social-icon">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i className="fab fa-facebook-f"></i></a>
                             </div>
                             <div className="social-icon">
-                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i className="fab fa-twitter"></i></a>
                             </div>
                             <div className="social-icon">
-                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i className="fab fa-youtube"></i></a>
                             </div>
                             <div className="social-icon">
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i className="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>

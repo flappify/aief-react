@@ -509,7 +509,7 @@ li{
 
 .helpdesk .main{
     width: 90%;
-    height: 70%;
+    height: 80%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -532,10 +532,10 @@ li{
 .helpdesk .main .left form{
     display: flex;
     width: 100%;
-    height: 80%;
+    height: 100%;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: space-around;
 }
 .helpdesk .main .left .form-first{
     display: flex;
@@ -549,12 +549,70 @@ li{
     justify-content: space-between;
 }
 .helpdesk .main .left .input-field label{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: 'Open Sans', sans-serif;
+    color: #444444;
 }
 
 .helpdesk .main .left .input-field input{
     width: 300px;
+    border:none;
+    border-bottom:2px solid #c9c9c9;
+    box-sizing: border-box;
+    background-color: #f6f6f6;
+    outline: none;
+    color: #444444;
+    font-size: 1.8rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.helpdesk .main .left .input-field input:focus{
+    border-bottom:2px solid #444444;
+}
+
+.helpdesk .main .left .form-last .input-field{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+}
+.helpdesk .main .left .input-field textarea{
+    width: 300px;
+    border:none;
+    border-bottom:2px solid #c9c9c9;
+    box-sizing: border-box;
+    background-color: #f6f6f6;
+    resize: none;
+    outline: none;
+    color: #444444;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.helpdesk .main .left .input-field textarea:focus{
+    border-bottom:2px solid #444444;
+}
+textarea::-webkit-scrollbar{
+    background-color: #f6f6f6;
+}
+textarea::-webkit-scrollbar-thumb{
+    border-radius: 2px;
+    background-color: #c9c9c9;
+}
+.helpdesk .main .left .submit-button button{
+    width: 100px;
+    height: 50px;
+    border:none;
+    border-radius: 5px;
+    color: #f6f6f6;
+    background-color: #444444;
+    font-size: 1rem;
+    line-height: 50px;
+    letter-spacing: 4px;
+    font-family: 'Open Sans', sans-serif;
+}
+.helpdesk .main .left .alert p{
+    color:#c4302b;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
 }
 .helpdesk .main .right{
     width: 40%;
@@ -591,7 +649,98 @@ li{
 .helpdesk .main .right .social .social-icon:hover{
     transform: scale(1.2);
 }
-.helpdesk .main .right .social .social-icon a{
+
+.helpdesk .main .right .social .social-icon a i{
     font-size: 1.4rem;
-    color: #444444;
+    line-height: 50px;
+    background:#444444;
+	background: -webkit-radial-gradient(33% 100% circle, #444444 4%, #444444 30%, #444444 62%, #444444 85%, #444444);
+	background: radial-gradient(circle at 33% 100%, #444444 4%, #444444 28%, #444444 62%, #444444 85%, #444444);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+.helpdesk .main .right .social .social-icon:nth-child(1):hover a i{
+    background: -webkit-radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+    background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.helpdesk .main .right .social .social-icon:nth-child(2):hover a i{
+    background: #3b5998;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.helpdesk .main .right .social .social-icon:nth-child(3):hover a i{
+    background: #38A1F3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.helpdesk .main .right .social .social-icon:nth-child(4):hover a i{
+    background: #c4302b;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.helpdesk .main .right .social .social-icon:nth-child(5):hover a i{
+    background: #0077B5;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/*SUPPORTER SPEAK*/
+.supporter{
+    width: 100%;
+    height:70vh;
+    background-color: #c9c9c9;
+    display: flex;
+    justify-content: center;
+}
+.supporter .main{
+    width: 90%;
+    height:90%;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+}
+.supporter .main .cards{
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.supporter .main .cards .card{
+    width: 300px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.supporter .main .cards .card p{
+    width: 80%;
+    padding:10px;
+    border-left: 4px solid #c4302b;
+    font-size: 1rem;
+}
+.supporter .main .cards .card .card-creator{
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.supporter .main .cards .card .card-creator h1{
+    font-size: 1rem;
+}
+.supporter .main .cards .card .card-creator img{
+    width:65px;
+    height: 65px;
+    border:2px solid #c4302b;
+    border-radius: 50px;
+    object-fit: cover;
 }

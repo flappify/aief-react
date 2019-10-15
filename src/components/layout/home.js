@@ -12,6 +12,7 @@ import Section4 from './section4';
 import Events from "./events";
 import HelpDesk from "./helpdesk";
 import SupportSpeak from './supportSpeak';
+import Gallery from './gallery';
 
 
 class Home extends React.Component{
@@ -28,6 +29,7 @@ class Home extends React.Component{
                 <Events events={events}/>
                 <HelpDesk/>
                 <SupportSpeak/>
+                <Gallery/>
             </div>
         )
     }
