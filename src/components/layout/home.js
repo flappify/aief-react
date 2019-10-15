@@ -12,8 +12,9 @@ import Section4 from './section4';
 import Events from "./events";
 import HelpDesk from "./helpdesk";
 import SupportSpeak from './supportSpeak';
-import Gallery from './gallery';
-
+import PhotoGallery from './gallery';
+import Location from './location';
+import Footer from './footer';
 
 class Home extends React.Component{
     render()
@@ -29,7 +30,8 @@ class Home extends React.Component{
                 <Events events={events}/>
                 <HelpDesk/>
                 <SupportSpeak/>
-                <Gallery/>
+                <PhotoGallery/>
+                <Footer/>
             </div>
         )
     }
