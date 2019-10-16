@@ -392,21 +392,95 @@ li{
 
 /**SECTION4**/
 .section4{
-    margin-top:100px;
+    margin:100px 0 0 0;
+    padding:20px 0 50px 0;
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
+    background-color: #f6f6f6;
 }
 .section4 .main{
     width: 90%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.section4 .main .bottom .slider-item img{
+.section4 .main .top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section4 .main .bottom{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.section4 .main .bottom .tab-list{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.section4 .main .bottom .tab-list .tabs{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content:space-evenly;
+    margin-bottom: 10px;
+}
+.section4 .main .bottom .tab-list .tabs .tab{
+    width: 30%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c8eedc;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.section4 .main .bottom .tab-list .tabs .tab-selected{
+    width: 30%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #83d8af;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.section4 .main .bottom .tab-list .tabs .tab h1{
+    font-size: 1.5rem;
+    color: black;
+    cursor: pointer;
+}
+.section4 .main .bottom .tab-list .tabs .tab-selected h1{
+    color:#fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.section4 .main .bottom .tab-list .tabs-detail{
+    display:flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+.section4 .main .bottom .tab-list .tabs-detail .tab-detail{
+    display:none;
+}
+.section4 .main .bottom .tab-list .tabs-detail .tab-detail-selected{
+    width:100%;
+    height: 50vh;
+    background-color: #fff;
+    border-radius: 10px;
+}
+.tab-item img{
     width:100%;
     height: 60vh;
     object-fit: cover;
+    border-radius: 10px;
 }
-
 /*EVENTS*/
 .events{
     width: 100%;
@@ -415,6 +489,7 @@ li{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: #f6f6f6;
 }
 .events h1{
     font-size: 3rem;
