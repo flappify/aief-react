@@ -24,6 +24,8 @@ li{
 }
 
 .navbar{
+    position: fixed;
+    top: 0;
     z-index: 9999;
     width: 100%;
     height: 18vh;
@@ -33,6 +35,8 @@ li{
     justify-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
+    transition: height 350ms ease-in;
 }
 
 .navbar .og{
@@ -66,31 +70,46 @@ li{
 }
 
 .navbar .menu .menu-list ul li a{
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: 'Muli', sans-serif;
     text-decoration: none;
     color: #f58634;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    border: 2px solid #ffff;
+}
+.navbar .menu .menu-list ul li a:hover{
+    color: #f58634;
+    border: 2px solid #f58634;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    transition: all 350ms ease-in;
 }
 .navbar .menu .menu-list ul li .active{
-    background-color: #f58634;
     color: #fff;
+    background-color: #f58634;
+    border: 2px solid #f58634;
+    border-radius: 5px;
     font-size: 1.2rem;
-    padding: 0.4rem 0.5rem;
-    border-radius: 0.25rem;
+    padding: 0.5rem 1.5rem;
 }
-.navbar .menu .menu-list ul li .hamburger{
+.navbar .menu .menu-list ul li .active:hover{
+    color: #fff;
+}
+.menu .menu-list ul li .hamburger{
     height: 1.7rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     cursor: pointer;
 }
-.navbar .menu .menu-list ul li .hamburger .line-1,.navbar .menu .menu-list ul li .hamburger .line-2{
+.menu .menu-list ul li .hamburger .line-1,.menu .menu-list ul li .hamburger .line-2{
     width: 1.8rem;
     height: 0.25rem;
     background-color: #f58634;
 }
-.navbar .menu .menu-list ul li .hamburger .line-1{
+.menu .menu-list ul li .hamburger .line-1{
     animation-name:line-1-back;
     animation-duration: 2s;
     animation-iteration-count: 1;
@@ -104,7 +123,7 @@ li{
         transform:translateY(0px);
     }
 }
-.navbar .menu .menu-list ul li .hamburger .line-2{
+.menu .menu-list ul li .hamburger .line-2{
     animation-name:line-2-back;
     animation-duration: 2s;
     animation-iteration-count: 1;
@@ -118,7 +137,7 @@ li{
         transform:translateY(2px);
     }
 }
-.navbar .menu .menu-list ul li .hamburger:hover .line-1{
+.menu .menu-list ul li .hamburger:hover .line-1{
     animation-name:line-1;
     animation-duration: 1s;
     animation-iteration-count: 1;
@@ -132,7 +151,7 @@ li{
         transform:rotate(180deg)translateY(-10px);
     }
 }
-.navbar .menu .menu-list ul li .hamburger:hover .line-2{
+.menu .menu-list ul li .hamburger:hover .line-2{
     animation-name:line-2;
     animation-duration: 1s;
     animation-iteration-count: 1;
@@ -147,19 +166,58 @@ li{
         transform:rotate(270deg)translate(2px,0px);
     }
 }
-.full-menu{
-    z-index: 9999;
-    position: absolute;
-    right:0;
-    width: 30%;
-    height: 82vh;
+.nomenu{
+    padding-top:15vh ;
+    position: fixed;
+    top: 10vh;
+    right: 0;
+    width:0%;
+    height:0vh;
     background-color: #fff;
+    transition: width 500ms ease-out;
+    overflow: hidden;
+    z-index: 99;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
+    
 }
-.full-menu ul li a{
+.fullmenu{
+    height: 90vh;
+    width: 25%;
+}
+.nomenu ul li a{
     font-size: 2.5rem;
     font-family: 'Muli', sans-serif;
     color: #f58634;
     text-decoration: none;
+}
+.menu .menu-list ul li .hamburger-open:hover .line-1{
+    animation-name:line-1-open;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes line-1-open{
+    20%{
+        transform:translateY(5px);
+    }
+    100%{
+        transform:rotate(135deg)translate(10px,-5px);
+    }
+}
+.menu .menu-list ul li .hamburger-open:hover .line-2{
+    animation-name:line-2-open;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: 2;
+}
+@keyframes line-2-open{
+    20%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:rotate(45deg)translateX(-5px);
+    }
 }
 @media screen and (max-width:680px)
 {
@@ -174,7 +232,61 @@ li{
     }
 }
 
+.navbarSmall{
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    margin: 5vh 15vw;
+    width: 70vw;
+    height: 10vh;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
+    transition: height 350ms ease-in;
+}
+.navbarSmall .og{
+    display: none;
+}
+.navbarSmall .menu{
+    width: 100%;
+    height: 100%;
+}
+.navbarSmall .menu .menu-list{
+    width: 100%;
+    height: 100%;
+}
+.navbarSmall .menu .menu-list ul{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+}
 
+.navbarSmall .menu .menu-list ul li a{
+    font-size: 1.2rem;
+    font-family: 'Muli', sans-serif;
+    text-decoration: none;
+    color: #f58634;
+    height: 100%;
+    padding: 1.5vh 2vh;
+    border-radius: 5px;
+}
+.navbarSmall .menu .menu-list ul li a:hover
+{
+    background-color: #ffebca;
+}
+.navbarSmall .menu .menu-list ul li:nth-child(1) a
+{
+    background-color: #f7984f;
+    color: #fff;
+}
 /* SECTION-1*/
 .section1{
     width: 100%;
@@ -206,7 +318,7 @@ li{
     align-items: center;
 }
 .section2 .main{
-    width: 90%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -216,16 +328,23 @@ li{
     width: 50%;
     height: 100%;
 }
+.section2 .main .left h1{
+    font-size: 3rem;
+}
+.section2 .main .left p{
+    font-size: 1.2rem;
+}
 .section2 .main .right{
-    width: 50%;
+    width: 60%;
     height: 60vh;
     position: relative;
 }
 .section2 .main .right .images{
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     -webkit-clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
     clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+    
 }
 .section2 .main .right .images img{
     width: 100%;
@@ -235,37 +354,37 @@ li{
 .section2 .main .right .images:nth-child(1)
 {
     position: absolute;
-    top: 39%;
-    left: 6%;
+    top: 150px;
+    left:40px;
 }
 .section2 .main .right .images:nth-child(2)
 {
     position: absolute;
-    top: 10%;
-    left: 26%;
+    top: 20px;
+    left:170px;
 }
 .section2 .main .right .images:nth-child(3)
 {
     position: absolute;
-    top: 55%;
-    left: 34%;
+    top: 220px;
+    left:230px;
 }
 .section2 .main .right .images:nth-child(4)
 {
     position: absolute;
-    top: 25%;
-    left: 53%;
+    top: 90px;
+    left: 360px;
 }
 .section2 .main .right .images:nth-child(5)
 {
     position: absolute;
-    top: 69%;
-    left: 62%;
+    top: 260px;
+    left: 450px;
 }
 /**SECTION3**/
 
 .section3{
-    margin-top: 200px;
+    margin:150px 0;
     width: 100%;
     height: 50vh;
     display: flex;
@@ -273,6 +392,7 @@ li{
     align-items: center;
     background-color: #83d8af;
 }
+
 .section3 .main{
     width: 90%;
     height: 90%;
@@ -393,7 +513,7 @@ li{
 /**SECTION4**/
 .section4{
     margin:100px 0 0 0;
-    padding:20px 0 50px 0;
+    padding:20px 0 0 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -428,7 +548,6 @@ li{
     width: 100%;
     flex-direction: row;
     justify-content:space-evenly;
-    margin-bottom: 10px;
 }
 .section4 .main .bottom .tab-list .tabs .tab{
     width: 30%;
@@ -438,7 +557,7 @@ li{
     align-items: center;
     background-color: #c8eedc;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
 }
 .section4 .main .bottom .tab-list .tabs .tab-selected{
     width: 30%;
@@ -446,9 +565,10 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #83d8af;
+    background-color: #fff;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
 }
 .section4 .main .bottom .tab-list .tabs .tab h1{
     font-size: 1.5rem;
@@ -456,7 +576,7 @@ li{
     cursor: pointer;
 }
 .section4 .main .bottom .tab-list .tabs .tab-selected h1{
-    color:#fff;
+    color:#000;
     font-size: 1.5rem;
     cursor: pointer;
 }
@@ -471,15 +591,17 @@ li{
 }
 .section4 .main .bottom .tab-list .tabs-detail .tab-detail-selected{
     width:100%;
-    height: 50vh;
+    height: 68vh;
     background-color: #fff;
     border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
 }
 .tab-item img{
-    width:100%;
-    height: 60vh;
+    margin:15px auto;
+    width:98%;
+    height: 65vh;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 /*EVENTS*/
 .events{
@@ -495,9 +617,10 @@ li{
     font-size: 3rem;
     width: 100%;
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     background-color: #fff;
     font-family: 'Open Sans', sans-serif;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
 }
 .events .event-list{
     width: 90%;
@@ -512,6 +635,7 @@ li{
     overflow: hidden;
     margin:0 2rem 2rem 2rem;
     border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
 }
 .event .event-img {
     width: 100%;
@@ -531,16 +655,16 @@ li{
 }
 .event .event-details h1{
     font-size:1.8rem;
-    height: 50px;
+    height: 90px;
     overflow: hidden;
     text-align: center;
-    margin:1rem 0;
     color: #604338;
     font-family: 'Domine', serif;
+    box-shadow: none;
 }
 
 .event .event-details p{
-    font-size:1rem;
+    font-size:1.2rem;
     height: 60px;
     overflow: hidden;
     text-align: center;
@@ -580,11 +704,12 @@ li{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
 }
 
 .helpdesk .main{
-    width: 90%;
-    height: 80%;
+    width: 80%;
+    height: 70%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -768,8 +893,8 @@ textarea::-webkit-scrollbar-thumb{
 /*SUPPORTER SPEAK*/
 .supporter{
     width: 100%;
-    height:70vh;
-    background-color: #c9c9c9;
+    height:80vh;
+    background-color: #e4e4e4;
     display: flex;
     justify-content: center;
 }
@@ -783,18 +908,19 @@ textarea::-webkit-scrollbar-thumb{
 }
 .supporter .main .cards{
     display: flex;
-    width: 80%;
+    width: 90%;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 }
 .supporter .main .cards .card{
-    width: 300px;
-    height: 280px;
+    width: 40vh;
+    height: 45vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
 }
 .supporter .main .cards .card p{
     width: 80%;

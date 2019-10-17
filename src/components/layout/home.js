@@ -13,7 +13,6 @@ import Events from "./events";
 import HelpDesk from "./helpdesk";
 import SupportSpeak from './supportSpeak';
 import PhotoGallery from './gallery';
-import Location from './location';
 import Footer from './footer';
 
 class Home extends React.Component{
