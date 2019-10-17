@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 import AdminNav from '../dashboard/adminNav';
 import {createEvent} from '../../actions/eventActions';
 import firebase from '../../config/firebase';
+import './event.css';
+
 class CreateEvent extends React.Component{
     state={
         image:"",
-        eventName:"",
-        eventshDesc:"",
+        eventName:"Event Name",
+        eventshDesc:"Event Short Description",
         eventDesc:"",
-        eventDate:"",
+        eventDate:"2019-17-10",
         previewurl:"",
         url:"",
         redirectToReferrer:false,
@@ -70,32 +72,54 @@ class CreateEvent extends React.Component{
         return(
             <div>
                 <AdminNav/>
-            <h1>Create Event</h1>
-            <form onSubmit={this.handleSubmit} id="createEvent">
-                <div>
-                    <img src={this.state.previewurl || 'http://via.placeholder.com/400x300'} alt="Uploaded images" height="300" width="400"/>
-                    <input type="file" onChange={this.handleImageChange} required/>
+                <div className="card-creation">
+                    <div className="main">
+                    <div className="top">
+                        <h1>Create Event</h1>
+                    </div>
+                    <div className="bottom">
+                        <div className="left">
+                            <form onSubmit={this.handleSubmit} id="createEvent">
+                                <div>
+                                    
+                                    <input type="file" onChange={this.handleImageChange} required/>
+                                </div>
+                                <div className="input-field">
+                                    <label htmlFor="eventName">Event Name</label>
+                                    <input type="text" id="eventName" onChange={this.handleChange} required/>
+                                </div>
+                                <div className="input-field">
+                                    <label htmlFor="eventshDesc">Event Short Description</label>
+                                    <input type="text" id="eventshDesc" onChange={this.handleChange} required/>
+                                </div>
+                                <div className="input-field">
+                                    <label htmlFor="eventDesc">Event Description</label>
+                                    <input type="text" id="eventDesc" onChange={this.handleChange} required/>
+                                </div>
+                                <div className="input-field">
+                                    <label htmlFor="eventDate">Event Date</label>
+                                    <input type="date" id="eventDate" onChange={this.handleChange} required/>
+                                </div>
+                                <div>
+                                    <button>Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="right">
+                            <div className="card">
+                                <div className="card-image">
+                                    <img src={this.state.previewurl || 'http://via.placeholder.com/400x300'} alt="Uploaded images"/>
+                                </div>
+                                <div className="card-details">
+                                    <h1>{this.state.eventName}</h1>
+                                    <p>{this.state.eventshDesc}</p>
+                                    <h2>{this.state.eventDate}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <div className="input-field">
-                    <label htmlFor="eventName">Event Name</label>
-                    <input type="text" id="eventName" onChange={this.handleChange} required/>
-                </div>
-                <div className="input-field">
-                    <label htmlFor="eventshDesc">Event Short Description</label>
-                    <input type="text" id="eventshDesc" onChange={this.handleChange} required/>
-                </div>
-                <div className="input-field">
-                    <label htmlFor="eventDesc">Event Description</label>
-                    <input type="text" id="eventDesc" onChange={this.handleChange} required/>
-                </div>
-                <div className="input-field">
-                    <label htmlFor="eventDate">Event Date</label>
-                    <input type="date" id="eventDate" onChange={this.handleChange} required/>
-                </div>
-                <div>
-                    <button>Submit</button>
-                </div>
-            </form>
             </div>
         )
     }
