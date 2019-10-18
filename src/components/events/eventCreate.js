@@ -80,8 +80,7 @@ class CreateEvent extends React.Component{
                     <div className="bottom">
                         <div className="left">
                             <form onSubmit={this.handleSubmit} id="createEvent">
-                                <div>
-                                    
+                                <div className="input-file">
                                     <input type="file" onChange={this.handleImageChange} required/>
                                 </div>
                                 <div className="input-field">

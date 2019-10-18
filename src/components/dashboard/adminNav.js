@@ -1,26 +1,36 @@
 import React from 'react';
-import {Nav,Navbar} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import SignOut from './signOut';
+
 class AdminNav extends React.Component{
+  state={
+    nav:"navbarSmall",
+    menu:"nomenu",
+    hamburger:"hamburger",
+  }
     render()
     {
       const {profile}=this.props;
         return(
-            <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="/">AIEF</Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="/urna/dashboard/form">Forms</Nav.Link>
-      <Nav.Link href="/urna/dashboard/donation">Donations</Nav.Link>
-      <Nav.Link href="/urna/dashboard/helpdesk">Queries</Nav.Link>
-      <Nav.Link href="/urna/dashboard/CreateEvent">Create Event</Nav.Link>
-      <Nav.Link href="/">Go Back to Website</Nav.Link>
-      <SignOut profile={profile}/>
-    </Nav>
-  </Navbar.Collapse>
-</Navbar>
+          <div>
+          <div className={this.state.nav}>
+            <div className="menu">
+                <div className="menu-list">
+                  <ul>
+                    <li className="primary-menu"><a href="/urna/dashboard" className="active">Home</a></li>
+                    <li className="primary-menu"><a href="/urna/dashboard/form">Forms</a></li>
+                    <li className="primary-menu"><a href="/urna/dashboard/donation" className="apply">Donations</a></li>
+                    <li className="primary-menu"><a href="/urna/dashboard/helpdesk" className="donate">Helps</a></li>
+                    <li className="primary-menu"><a href="/urna/dashboard/CreateEvent" className="donate">Create Event</a></li>
+                    <li>
+                      <SignOut profile={profile}/>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+           
+      </div>   
         )
     }
 }

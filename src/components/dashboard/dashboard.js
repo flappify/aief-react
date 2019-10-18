@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom'
 import {firestoreConnect } from 'react-redux-firebase';
 import {compose} from 'redux';
-
+import "./dashboard.css";
 class Dashboard extends React.Component{
     render()
     {
@@ -18,17 +18,17 @@ class Dashboard extends React.Component{
       if(!auth.uid) return <Redirect to='/urna' />
         return(
             <div>
-                <AdminNav/>
-            <Container>
-  <Row>
-    <Col sm={5}><FormTop forms={forms}/></Col>
-    <Col sm={5}><Notification/></Col>
-  </Row>
-  <Row>
-    <Col sm={5}><DonationTop donations={donations}/></Col>
-    <Col sm={5}><QueriesTop helps={helps}/></Col>
-  </Row>
-</Container>
+              <AdminNav/>
+              <Container>
+                <Row>
+                  <Col sm={5}><FormTop forms={forms}/></Col>
+                  <Col sm={5}><Notification/></Col>
+                </Row>
+                <Row>
+                  <Col sm={5}><DonationTop donations={donations}/></Col>
+                  <Col sm={5}><QueriesTop helps={helps}/></Col>
+                </Row>
+              </Container>
             </div>
         )
     }

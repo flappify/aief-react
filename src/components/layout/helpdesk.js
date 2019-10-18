@@ -25,7 +25,7 @@ class HelpDesk extends React.Component{
     {
         const {submitError}=this.props;
         return(
-            <div className="helpdesk">
+            <div className="helpdesk" id="helpdesk">
                 <div className="main">
                     <div className="left">
                         <h1>GET IN TOUCH</h1>

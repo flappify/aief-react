@@ -1,7 +1,10 @@
 .card-creation{
+    margin-top: 50px;
     width:100%;
-    height: 100%;
+    height: 100vh;
     display:flex;
+    align-items: center;
+    justify-content: center;
 }
 .card-creation .main{
     width:90%;
@@ -13,10 +16,19 @@
 }
 .card-creation .main .bottom{
     display: flex;
+    height: 70%;
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
 }
+.card-creation .main .bottom .left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .card-creation .main .bottom .right{
     display: flex;
     flex-direction: column;
