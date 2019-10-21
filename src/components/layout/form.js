@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {createForm} from '../../actions/formActions';
 import firebase from '../../config/firebase';
-import {Redirect} from 'react-router-dom';
 class Form extends React.Component{
     state={
         name:"",

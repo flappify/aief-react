@@ -656,6 +656,9 @@ li{
 .event .event-details h1{
     font-size:1.8rem;
     height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     text-align: center;
     color: #604338;
@@ -680,19 +683,6 @@ li{
     text-align: center;
     font-family: 'Hepta Slab', serif;
 }
-.event .event-details h3{
-    font-size:1.2rem;
-    width: 100px;
-    height: 50px;
-    margin: 30px auto;
-    text-align: center;
-    line-height: 50px;
-    color: #000;
-    border: 2px solid #000;
-    border-radius:3px;
-    font-family: 'Open Sans', sans-serif;
-}
-
 
 /*Help Desk*/
 .helpdesk{
@@ -883,6 +873,7 @@ textarea::-webkit-scrollbar-thumb{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 .helpdesk .main .right .social .social-icon:nth-child(5):hover a i{
     background: #0077B5;
     -webkit-background-clip: text;

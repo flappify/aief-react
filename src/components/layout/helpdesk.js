@@ -56,7 +56,7 @@ class HelpDesk extends React.Component{
                         <h1>FOLLOW</h1>
                         <div className="social">
                             <div className="social-icon">
-                                <a href="https://stackoverflow.com/questions/15865982/it-is-possible-to-expand-a-textarea-only-with-css" target="_blank"><i className="fab fa-instagram"></i></a>
+                                <a href="https://stackoverflow.com/questions/15865982/it-is-possible-to-expand-a-textarea-only-with-css" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
                             </div>
                             <div className="social-icon">
                                 <a href="#"><i className="fab fa-facebook-f"></i></a>

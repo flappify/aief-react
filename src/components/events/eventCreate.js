@@ -8,8 +8,8 @@ import './event.css';
 class CreateEvent extends React.Component{
     state={
         image:"",
-        eventName:"Event Name",
-        eventshDesc:"Event Short Description",
+        eventName:"Lorel Ipsum Dummy Text",
+        eventshDesc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         eventDesc:"",
         eventDate:"2019-17-10",
         previewurl:"",
@@ -59,7 +59,6 @@ class CreateEvent extends React.Component{
             }))
             this.props.createEvent(this.state) 
         console.log(this.state);
-        document.getElementById("createEvent").reset();
         this.setState(()=>({
             previewurl:null
         }))
@@ -69,6 +68,7 @@ class CreateEvent extends React.Component{
 
     render()
     {
+        const {applyError}=this.props;
         return(
             <div>
                 <AdminNav/>
@@ -81,7 +81,8 @@ class CreateEvent extends React.Component{
                         <div className="left">
                             <form onSubmit={this.handleSubmit} id="createEvent">
                                 <div className="input-file">
-                                    <input type="file" onChange={this.handleImageChange} required/>
+                                    <input type="file" name="file" id="file" class="inputfile" onChange={this.handleImageChange} required/>
+                                    <label for="file">Choose an Image</label>
                                 </div>
                                 <div className="input-field">
                                     <label htmlFor="eventName">Event Name</label>
@@ -93,26 +94,27 @@ class CreateEvent extends React.Component{
                                 </div>
                                 <div className="input-field">
                                     <label htmlFor="eventDesc">Event Description</label>
-                                    <input type="text" id="eventDesc" onChange={this.handleChange} required/>
+                                    <textarea id="eventDesc" onChange={this.handleChange} required/>
                                 </div>
                                 <div className="input-field">
                                     <label htmlFor="eventDate">Event Date</label>
-                                    <input type="date" id="eventDate" onChange={this.handleChange} required/>
+                                    <input type="text" id="eventDate" onChange={this.handleChange} required/>
                                 </div>
-                                <div>
-                                    <button>Submit</button>
+                                <div className="submit">
+                                    <button type="submit">Create Event</button>
                                 </div>
                             </form>
+                            <div className="alert">{applyError ? <p>{applyError}</p>:null}</div>
                         </div>
                         <div className="right">
                             <div className="card">
                                 <div className="card-image">
-                                    <img src={this.state.previewurl || 'http://via.placeholder.com/400x300'} alt="Uploaded images"/>
+                                    <img src={this.state.previewurl || 'https://firebasestorage.googleapis.com/v0/b/aief-d.appspot.com/o/events%2FThe%20super%20powers%20of%20meditation2019-10-18?alt=media&token=56b01486-b73a-45e7-aad1-6c6efb428976'} alt="Uploaded images"/>
                                 </div>
                                 <div className="card-details">
                                     <h1>{this.state.eventName}</h1>
                                     <p>{this.state.eventshDesc}</p>
-                                    <h2>{this.state.eventDate}</h2>
+                                    <h2>Date: {this.state.eventDate}</h2>
                                 </div>
                             </div>
                         </div>

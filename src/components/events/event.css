@@ -1,5 +1,5 @@
 .card-creation{
-    margin-top: 50px;
+    margin: 80px 0;
     width:100%;
     height: 100vh;
     display:flex;
@@ -14,6 +14,10 @@
     align-items: center;
     justify-content: center;
 }
+.card-creation .main .top h1{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
 .card-creation .main .bottom{
     display: flex;
     height: 70%;
@@ -27,8 +31,79 @@
     align-items: center;
     justify-content: center;
 }
-
-
+.card-creation .main .bottom .left form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.card-creation .main .bottom .left form .input-field{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.card-creation .main .bottom .left form .input-field label{
+    font-size: 1.5rem;
+}
+.card-creation .main .bottom .left form .input-field input{
+    width: 300px;
+    border:none;
+    border-bottom:2px solid #c9c9c9;
+    box-sizing: border-box;
+    background-color: transparent;
+    outline: none;
+    color: #444444;
+    font-size: 1.8rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.input-field input:focus{
+    border-bottom:2px solid #444444;
+}
+.card-creation .main .bottom .left form .input-field textarea{
+    width: 300px;
+    border:none;
+    border-bottom:2px solid #c9c9c9;
+    box-sizing: border-box;
+    background-color: transparent;
+    resize:vertical;
+    outline: none;
+    color: #444444;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.card-creation .main .bottom .left form .input-field textarea:focus{
+    border-bottom:2px solid #444444;
+}
+.card-creation .main .bottom .left form .submit button{
+    border:none;
+    margin-top:20px;
+    border-radius: 5px;
+    padding:0.8rem;
+    color: #f6f6f6;
+    background-color: #444444;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+}
+.card-creation .main .bottom .left form .input-file input{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.card-creation .main .bottom .left form .input-file label{
+    font-size: 1rem;
+    background-color: #f1f1f1;
+    padding:0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.card-creation .main .bottom .left .alert p{
+    color:#c4302b;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+}
 .card-creation .main .bottom .right{
     display: flex;
     flex-direction: column;
@@ -37,53 +112,51 @@
 }
 
 .card-creation .main .bottom .right .card{
+    background-color:#fff;
     width: 25vw;
-    height: 70vh;
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    height: 65vh;
+    overflow: hidden;
+    margin:0 2rem 2rem 2rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .8);
 } 
 
 .card-creation .main .bottom .right .card .card-image{
     width: 100%;
     height: 30vh;
     overflow: hidden;
-    margin-bottom: 10px;
 }
-
 .card-creation .main .bottom .right .card .card-image img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.card-creation .main .bottom .right .card .card-details{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .card-creation .main .bottom .right .card .card-details h1{
     font-size:1.8rem;
-    height: 60px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     text-align: center;
-    margin:1rem 0;
     color: #604338;
     font-family: 'Domine', serif;
+    box-shadow: none;
 }
 
 .card-creation .main .bottom .right .card .card-details p{
-    font-size:1rem;
+    font-size:1.2rem;
     height: 60px;
     overflow: hidden;
     text-align: center;
+    margin:0.5rem;
     color: #98b4c0;
     font-family: 'Open Sans', sans-serif;
 }
 
 .card-creation .main .bottom .right .card .card-details h2{
     font-size:1.2rem;
+    margin:1rem 0.5rem;
     color: #000;
     text-align: center;
     font-family: 'Hepta Slab', serif;
