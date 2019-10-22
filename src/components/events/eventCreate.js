@@ -57,8 +57,8 @@ class CreateEvent extends React.Component{
             this.setState(()=>({
                 url:url
             }))
-            this.props.createEvent(this.state) 
-        console.log(this.state);
+            this.props.createEvent(this.state)
+            document.getElementById("createEvent").reset();
         this.setState(()=>({
             previewurl:null
         }))
@@ -68,7 +68,7 @@ class CreateEvent extends React.Component{
 
     render()
     {
-        const {applyError}=this.props;
+        const {eventError}=this.props;
         return(
             <div>
                 <AdminNav/>
@@ -104,7 +104,6 @@ class CreateEvent extends React.Component{
                                     <button type="submit">Create Event</button>
                                 </div>
                             </form>
-                            <div className="alert">{applyError ? <p>{applyError}</p>:null}</div>
                         </div>
                         <div className="right">
                             <div className="card">
@@ -119,6 +118,7 @@ class CreateEvent extends React.Component{
                             </div>
                         </div>
                     </div>
+                    <div className="alert">{eventError ? <p>{eventError}</p>:null}</div>
                     </div>
                 </div>
             </div>
