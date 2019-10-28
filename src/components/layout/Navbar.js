@@ -36,7 +36,6 @@ class NavBar extends React.Component{
           nav:"navbar"
       }));
       }
-      console.log(this.state);
   }
     handleMenu=(e)=>{
       e.preventDefault();

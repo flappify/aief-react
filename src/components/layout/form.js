@@ -237,9 +237,9 @@ class Form extends React.Component{
                                 <option value="voter">Voter ID</option>
                                 <option value="aadhar">Aadhar</option>
                                 <option value="driving">Driving Licence</option>
-                                <option value="passport" selected>Passport No.</option>
-                                <option value="student" selected>Student ID</option>
-                                <option value="noselection" selected>Not Selected</option>
+                                <option value="passport">Passport No.</option>
+                                <option value="student">Student ID</option>
+                                <option value="noselection">Not Selected</option>
                             </select>
                         </div>
                         <div className="input-field">
