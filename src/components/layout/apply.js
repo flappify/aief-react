@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from './Navbar';
 import Form from './form';
+import Footer from './footer';
 class Apply extends React.Component{
     render()
     {
@@ -8,6 +9,7 @@ class Apply extends React.Component{
             <div>
                 <NavBar/>
                 <Form/>
+                <Footer/>
             </div>
         )
     }

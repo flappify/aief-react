@@ -10,7 +10,7 @@ class Intro extends React.Component{
                         <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price You may see some for as low as each.</p>
                     </div>
                     <div className="bottom">
-                        <a></a>
+                        <a href="https://www.youtube.com/watch?v=p29dKpHnPjQ" target="_blank"><img src={require('./video-icon.png')} /><span>Watch our intro video</span></a>
                     </div>
                 </div>
                 <div className="right">

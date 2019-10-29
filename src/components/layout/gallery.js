@@ -49,31 +49,6 @@ class PhotoGallery extends React.Component {
         width: 4,
         height: 3
       },
-      {
-        src: "https://source.unsplash.com/XiDA78wAZVw/600x799",
-        width: 3,
-        height: 4
-      },
-      {
-        src: "https://source.unsplash.com/x8xJpClTvR0/800x599",
-        width: 4,
-        height: 3
-      },
-      {
-        src: "https://source.unsplash.com/qGQNmBE7mYw/800x599",
-        width: 4,
-        height: 3.5
-      },
-      {
-        src: "https://source.unsplash.com/NuO6iTBkHxE/800x599",
-        width: 4,
-        height: 3
-      },
-      {
-        src: "https://source.unsplash.com/pF1ug8ysTtY/600x400",
-        width: 4,
-        height: 2.2
-      },
     ];
     return (
       <div className="gallery">
