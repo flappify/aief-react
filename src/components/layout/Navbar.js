@@ -25,7 +25,7 @@ class NavBar extends React.Component{
           currentScroll:currentScroll,
           height:height
       }));
-      if(currentScroll>200)
+      if(currentScroll>100)
       {
         this.setState(()=>({
           nav:"navbarSmall"
@@ -85,6 +85,10 @@ class NavBar extends React.Component{
             </div>
             <div className={this.state.menu}>
               <ul>
+              <li className="secondary-menu"><a href="/">Home</a></li>
+               <li className="secondary-menu"><a href="/vision">Vision</a></li>
+               <li className="secondary-menu"><a href="/apply" className="apply">Apply</a></li>
+               <li className="secondary-menu"><a href="/donate" className="donate">Donate</a></li>
                <li><a href="/works">Works</a></li>
                <li><a href="/events">Events</a></li>
                <li><a href="/campaign">Campaigns</a></li>
