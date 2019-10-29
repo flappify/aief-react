@@ -339,24 +339,78 @@ li{
     object-fit: cover;
 }
 
-/* SECTION-1*/
-.section1{
-    width: 100%;
-    overflow: hidden;
-}
-.section1 .slider-item img{
-    width: 100%;
-    height: 100vh;
-    object-fit: fill;
-}
 
 @media screen and (max-width:680px)
 {
-    .section1 .slider-item img{
-        width: 100%;
-        height: 60vh;
-        object-fit: fill;
-    }
+    
+.intro{
+    margin-top: 15vh;
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    overflow: hidden;
+}
+.intro .left{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+    margin-bottom: 5vh;
+}
+.intro .left .top{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.intro .left .top h1{
+    font-size: 2.5rem;
+    font-family: 'Domine', serif;
+    font-weight: 500;
+}
+
+.intro .left .top p{
+    font-size: 1rem;
+    color: #c7c7c7;
+    font-family: 'Muli', sans-serif;
+}
+.intro .left .bottom{
+    width: 90%;
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items: center;
+}
+.intro .left .bottom a{
+    text-decoration: none;
+}
+.intro .left .bottom span{
+    margin-left: 20px;
+    color: #000;
+    
+}
+.intro .right{
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro .right img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 }
 
 
@@ -436,6 +490,62 @@ li{
     top: 260px;
     left: 450px;
 }
+
+@media screen and (max-width:680px){
+    .section2 .main{
+        width: 100%;
+        display: flex;
+        flex-direction:column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+    .section2 .main .left{
+        width: 90%;
+        height: 30vh;
+    }
+    
+.section2 .main .right{
+    width: 90%;
+    height: 60vh;
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.section2 .main .right .images{
+    width: 140px;
+    height: 140px;
+    -webkit-clip-path: none;
+    clip-path: none;
+    margin: 0 10px;
+    
+}
+.section2 .main .right .images img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+.section2 .main .right .images:nth-child(1)
+{
+    position: static;
+}
+.section2 .main .right .images:nth-child(2)
+{position: static;
+}
+.section2 .main .right .images:nth-child(3)
+{position: static;
+}
+.section2 .main .right .images:nth-child(4)
+{position: static;
+}
+.section2 .main .right .images:nth-child(5)
+{position: static;
+}
+
+}
+
 /**SECTION3**/
 
 .section3{
