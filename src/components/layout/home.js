@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import {compose} from 'redux';
 import {firestoreConnect } from 'react-redux-firebase';
 
-import Section1 from './section1';
 import Section2 from './section2';
 import Section3 from './section3';
 import Section4 from './section4';
@@ -14,6 +13,7 @@ import HelpDesk from "./helpdesk";
 import SupportSpeak from './supportSpeak';
 import PhotoGallery from './gallery';
 import Footer from './footer';
+import Intro from './intro';
 
 class Home extends React.Component{
     render()
@@ -22,7 +22,7 @@ class Home extends React.Component{
         return(
             <div>
                 <Navbar/>
-                <Section1/>
+                <Intro/>
                 <Section2/>
                 <Section3/>
                 <Section4/>

@@ -70,8 +70,8 @@ class NavBar extends React.Component{
               <div className="menu">
                   <div className="menu-list">
                     <ul>
-                      <li className="primary-menu"><a href="/" className="active">Home</a></li>
-                      <li className="primary-menu"><a href="/vision">Our Vision</a></li>
+                      <li className="primary-menu"><a href="/">Home</a></li>
+                      <li className="primary-menu"><a href="/vision">Vision</a></li>
                       <li className="primary-menu"><a href="/apply" className="apply">Apply</a></li>
                       <li className="primary-menu"><a href="/donate" className="donate">Donate</a></li>
                       <li>
