@@ -25,14 +25,21 @@ class Form extends React.Component{
         image2:"",
         url:"",
         url2:"",
-        next:"none",
-        hide:"block",
-        next2:"none",
-        hide2:"block",
         previewurl:"",
         previewurl2:"",
         redirectToReferrer:false,
         redirectToReferrer2:false,
+        tab:"tab",
+        activetab:"tab-selected",
+        tab1:"tab-selected",
+        tab2:"tab",
+        tab3:"tab",
+        statusPart1:"flex",
+        statusPart2:"none",
+        statusPart3:"none",
+        previous:"hidden",
+        next:"visible",
+        currTab:"1"
     }
     handleChange=(e)=>{
         this.setState({
@@ -81,35 +88,109 @@ class Form extends React.Component{
             }
           }
     }
-    handlePerAddress=(e)=>{
-        if(this.state.same_per)
+    handleShow1=(e)=>{
+        e.preventDefault();
+        this.setState(() => ({
+            tab1:"tab-selected",
+            tab2:"tab",
+            tab3:"tab",
+            statusPart1:"flex",
+            statusPart2:"none",
+            statusPart3:"none",
+            previous:"hidden",
+            next:"block",
+            currTab:"1",
+        }));
+    }
+    handleShow2=(e)=>{
+        e.preventDefault();
+        this.setState(() => ({
+            tab2:"tab-selected",
+            tab1:"tab",
+            tab3:"tab",
+            statusPart2:"flex",
+            statusPart1:"none",
+            statusPart3:"none",
+            previous:"visible",
+            next:"block",
+            currTab:"2",
+        }));
+    }
+    handleShow3=(e)=>{
+        e.preventDefault();
+        this.setState(() => ({
+            tab3:"tab-selected",
+            tab2:"tab",
+            tab1:"tab",
+            statusPart3:"flex",
+            statusPart2:"none",
+            statusPart1:"none",
+            previous:"visible",
+            next:"none",
+            currTab:"3",
+        }));
+    }
+    handlePrevious=(e)=>{
+        e.preventDefault();
+        if(this.state.currTab=="2")
         {
             this.setState(() => ({
-                same_per:false,
-                per_address:this.state.per_address
+                tab1:"tab-selected",
+                tab2:"tab",
+                tab3:"tab",
+                statusPart1:"flex",
+                statusPart2:"none",
+                statusPart3:"none",
+                currTab:"1",
+                previous:"hidden",
+                next:"block",
             }));
         }
-        else{
+        else if(this.state.currTab=="3")
+        {
             this.setState(() => ({
-                same_per:true,
-                per_address:this.state.curr_address
+                tab2:"tab-selected",
+                tab1:"tab",
+                tab3:"tab",
+                statusPart2:"flex",
+                statusPart1:"none",
+                statusPart3:"none",
+                currTab:"2",
+                previous:"visible",
+                next:"block",
             }));
         }
-        console.log(this.state.same_per);
     }
     handleNext=(e)=>{
         e.preventDefault();
+        if(this.state.currTab=="1")
+        {
             this.setState(() => ({
+                tab2:"tab-selected",
+                tab1:"tab",
+                tab3:"tab",
+                statusPart2:"flex",
+                statusPart1:"none",
+                statusPart3:"none",
+                currTab:"2",
+                previous:"visible",
                 next:"block",
-                hide:"none"
             }));
-    }
-    handleNext2=(e)=>{
-        e.preventDefault();
+        }
+        else if(this.state.currTab=="2")
+        {
             this.setState(() => ({
-                next2:"block",
-                hide2:"none"
+                tab3:"tab-selected",
+                tab1:"tab",
+                tab2:"tab",
+                statusPart3:"flex",
+                statusPart1:"none",
+                statusPart2:"none",
+                currTab:"3",
+                previous:"visible",
+                next:"none",
             }));
+        }
     }
     handleSubmit=(e)=>{
         e.preventDefault();
@@ -142,32 +223,47 @@ class Form extends React.Component{
     render()
     {
         const {applyError}=this.props;
-        var per_value;
-        const show = {
-            display: this.state.next,
-          };
-          const show2 = {
-            display: this.state.next2,
-          };
-        const hide = {
-            display: this.state.hide,
-          };
-          const hide2 = {
-            display: this.state.hide2,
-          };
-        var same_per=this.state.same_per;
-        if(same_per)
-        {
-            per_value=this.state.curr_address;
+        const part_1={
+            display:this.state.statusPart1
+        }
+        const part_2={
+            display:this.state.statusPart2
+        }
+        const part_3={
+            display:this.state.statusPart3
+        }
+        const prev={
+            visibility:this.state.previous
+        }
+        const nex={
+            display:this.state.next
         }
         return(
                 <div className="container">
-                    <form onSubmit={this.handleSubmit} className="white">
-                        <h5 className="grey-text text-darken-3">New Form</h5>
-                        <div>
-                        <img src={this.state.previewurl || 'http://via.placeholder.com/400x300'} alt="Uploaded images" height="300" width="400"/>
-                        <input type="file" onChange={this.handleImageChange} required/>
+                    <h4>You are few steps Away from becoming an AIEF Member</h4>
+                    <h5>Fill your details below:-</h5>
+                    <div className="form-container">
+                        <div className="tabs">
+                                <div className={this.state.tab1} onClick={this.handleShow1}>
+                                    <h1>Profile Info</h1>
+                                </div>
+                                <div className={this.state.tab2} onClick={this.handleShow2}>
+                                    <h1>Personal Info</h1>
+                                </div>
+                                <div className={this.state.tab3} onClick={this.handleShow3}>
+                                    <h1>Terms & Cond.</h1>
+                                </div>
                         </div>
+                        <form onSubmit={this.handleSubmit}>
+                        <div className="form-part-1" style={part_1}>
+                        <div className="form-profile-choose">
+                            <div className="form-profile-picture">
+                            <img src={this.state.previewurl || 'https://demos.creative-tim.com/material-bootstrap-wizard/assets/img/default-avatar.png'} alt="Uploaded images"/>
+                            <input type="file" id="profile-photo" onChange={this.handleImageChange} required/>
+                            </div>
+                            <label for="profile-photo">CHOOSE PHOTO</label>
+                        </div>
+                        <div className="form-profile-details">
                         <div className="input-field">
                             <label htmlFor="name">Name</label>
                             <input type="text" id="name" onChange={this.handleChange} required/>
@@ -180,29 +276,20 @@ class Form extends React.Component{
                             <label htmlFor="phone">Phone</label>
                             <input type="text" id="phone" onChange={this.handleChange} required/>
                         </div>
-                        <button onClick={this.handleNext} style={hide}>Next</button>
-                       <div style={show} >
+                        </div>
+                        </div>
+                       <div className="form-part-2" style={part_2} >
+                       <div className="form-group">
                        <div className="input-field">
                             <label htmlFor="curr-address">Current Address</label>
                             <input type="text" id="curr_address" onChange={this.handleChange} required/>
                         </div>
                         <div className="input-field">
                             <label htmlFor="per-address">Permanent Address</label>
-                            <input type="checkbox" id="same_per_address" onChange={this.handlePerAddress}/>Same as current address
-                            <input type="text" id="per_address" value={per_value} onChange={this.handleChange} required/>
+                            <input type="text" id="per_address" onChange={this.handleChange} required/>
                         </div>
-                        <div className="input-field">
-                            <label htmlFor="dob">Date of Birth</label>
-                            <input type="date" id="dob" onChange={this.handleChange} required/>
-                        </div>
-                        <div className="input-field">
-                            <label htmlFor="ref">Gender</label>
-                            <select id="gender" onChange={this.handleChange} required>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="others">Others</option>
-                            </select>
-                        </div>
+                       </div>
+                        <div className="form-group">
                         <div className="input-field">
                             <label htmlFor="father_name">Father's Name</label>
                             <input type="text" id="father_name" onChange={this.handleChange} required/>
@@ -211,6 +298,8 @@ class Form extends React.Component{
                             <label htmlFor="mother_name">Mother's Name</label>
                             <input type="text" id="mother_name" onChange={this.handleChange} required/>
                         </div>
+                        </div>
+                        <div className="form-group">
                         <div className="input-field">
                             <label htmlFor="qualification">Qualification</label>
                             <input type="text" id="qualification" onChange={this.handleChange} required/>
@@ -219,6 +308,8 @@ class Form extends React.Component{
                             <label htmlFor="profession">Profession</label>
                             <input type="text" id="profession" onChange={this.handleChange} required/>
                         </div>
+                        </div>
+                        <div className="form-group">
                         <div className="input-field">
                             <label htmlFor="mem_dur">Membership Duration</label>
                             <input type="text" id="mem_dur" onChange={this.handleChange} required/>
@@ -227,10 +318,12 @@ class Form extends React.Component{
                             <label htmlFor="mem_fee">Membership Fees</label>
                             <input type="text" id="mem_fee" onChange={this.handleChange} required/>
                         </div>
+                        </div>
                         <div className="input-field">
                             <label htmlFor="ref">Reference</label>
                             <input type="text" id="ref" onChange={this.handleChange}/>
                         </div>
+                        <div className="form-group">
                         <div className="input-field">
                             <label htmlFor="ref">Document Type</label>
                             <select id="doc_type" onChange={this.handleChange}>
@@ -239,33 +332,42 @@ class Form extends React.Component{
                                 <option value="driving">Driving Licence</option>
                                 <option value="passport">Passport No.</option>
                                 <option value="student">Student ID</option>
-                                <option value="noselection">Not Selected</option>
                             </select>
                         </div>
                         <div className="input-field">
                             <label htmlFor="doc_no">Document No.</label>
                             <input type="text" id="doc_no" onChange={this.handleChange}/>
                         </div>
-                        <div>
-                        <img src={this.state.previewurl2 || 'http://via.placeholder.com/400x300'} alt="Uploaded images" height="300" width="400"/>
-                        <input type="file" onChange={this.handleImageChange2} required/>
                         </div>
-                        <div>
-                            <button style={hide2} onClick={this.handleNext2}>Next</button>
+                        <div className="document">
+                            <div className="document-picker">
+                            <img src={this.state.previewurl2 || 'https://cdn.website.thryv.com/5d1fe685b4a64589bc36d37fca3e09c2/dms3rep/multi/mobile/passport.png'} alt="Uploaded images"/>
+                            <input type="file" id="document-photo" onChange={this.handleImageChange2} required/>
+                            </div>
+                            <label for="document-photo">CHOOSE DOCUMENT</label>
                         </div>
-                        <div style={show2}>
-                            <p>Terms & Conditions</p>
+                        </div>
+                        <div className="form-part-3" style={part_3}>
+                            <h4>Terms & Conditions</h4>
                             <p>For all AIEF, National/State/Patrons holder the new membership of above mentioned organization one has membership fees and donation as per own capacity and requirements of the organization for spread and promotion of the AIEF.</p>
                             <p>All AIEF executive member, the new membership charges &#x20b9; 200 only.</p>
                             <p>All AIEF post holders members, the new membership charges &#x20b9; 1500 only.</p>
                             <p>If any member of the office bearer of our organization is found guilty of being involved in illegal activities, cheating, duping or misuse of his ID card including the name of the organization, our AIEF will take no reponsibility for that, the administration is free to take legal action against him/her. </p>
-                            <input type="checkbox" id="accept" onChange={this.handleChange} required/>  I accept terms and conditions.
+                            <div className="accept-group">
+                                <input class="checkbox" type="checkbox" id="checkbox" />
+                                <label for="checkbox">I accept the terms and conditions</label>
+                            </div>
                         <div className="input-field">
-                            <button type="submit" >Submit</button>
+                            <button type="submit">SUBMIT</button>
                         </div>
                         </div>
-                       </div>
+                        <div className="buttons">
+                            <button onClick={this.handlePrevious} style={prev}>PREVIOUS</button>
+                            <button onClick={this.handleNext} style={nex}>NEXT</button>
+                        </div>
                     </form>
+                    
+                    </div>
                     <div className="red-text center">{applyError ? <p>{applyError}</p>:null}</div>
                 </div>
         )
