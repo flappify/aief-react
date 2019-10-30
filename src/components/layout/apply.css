@@ -1,4 +1,4 @@
-.container{
+.apply-container{
     padding: 50px 0;
     width: 60vw;
     height: 100%;
@@ -10,6 +10,9 @@
     border-radius: 5px;
     box-shadow: 0 10px 40px rgba(43, 45, 63, 0.4);
 }
+.apply-container h4{
+    margin: 10px 0;
+}
 .form-container{
     width: 100%;
     height: 100%;
@@ -18,6 +21,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
 .tabs{
     width: 100%;
     background-color: #e2e1e1;
@@ -44,6 +48,8 @@
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0 5px 20px rgba(159, 162, 177, .4);
+    transform: translate3d(-12px,0px, 0px);
+    transition: transform 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;
 }
 .tabs h1{
     font-size: 1.2rem;
@@ -69,6 +75,12 @@ form{
     justify-content: space-around;
     align-items: center;
 }
+.form-profile-choose{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 .form-profile-picture{
     width: 120px;
     height: 120px;
@@ -90,6 +102,11 @@ form{
     width: 100%;
     height: 100%;
     position:absolute;
+}
+.form-profile-choose label{
+    margin: 10px 0;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 form .input-field{
     display: flex;
@@ -178,6 +195,10 @@ form .input-field input{
     height: 100%;
     position:absolute;
 }
+.document label{
+    font-size: 1.4rem;
+    cursor: pointer;
+}
 .form-part-3{
     margin:0 0 40px 0;
     width: 70%;
@@ -192,23 +213,21 @@ form .input-field input{
     font-weight: 400;
 }
 .form-part-3 .accept-group{
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    position: relative;
 }
-
-
-
-.form-part-3 button{
-    padding: 12px 30px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    color: #fff;
-    outline: none;
-    background-color: #4CAF50;
+.form-part-3 .accept-group .checkbox{
+    margin: 2px 10px 0 10px;
+    transform: scale(1.5);
+}
+.form-part-3 .accept-group label{
+    font-size: 1.4rem;
+    margin: 0 10px;
+    cursor: pointer;
 }
 .form-container .buttons button{
     padding: 12px 30px;
@@ -219,9 +238,39 @@ form .input-field input{
     outline: none;
 }
 .form-container .buttons button:nth-child(1){
-    background-color: #c9c9c9;
+    background-color: #999999;
 }
 
 .form-container .buttons button:nth-child(2){
     background-color: #F58634;
+    padding: 12px 50px;
+}
+.form-container .buttons button:nth-child(3){
+    background-color: #4CAF50;
+}
+
+.alert{
+    display: none;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert p{
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+    padding: 10px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+
+select {
+    border: 2px solid #444444;
+    padding: 5px 15px 10px 5px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
 }

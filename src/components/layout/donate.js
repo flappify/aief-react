@@ -2,7 +2,7 @@ import React from 'react';
 import PaypalExpressBtn from 'react-paypal-express-checkout';
 import {connect} from 'react-redux';
 import {createDonate} from '../../actions/donationActions';
-import "./layout.css";
+
 
 class Donate extends React.Component {
     state={
@@ -31,6 +31,8 @@ class Donate extends React.Component {
     handleDatabase=()=>{
         console.log("For Database");
         this.props.createDonate(this.state)
+        document.querySelector('.alert').style.display="flex";
+        setTimeout(function(){ document.querySelector('.alert').style.display="none"; }, 6000);
     }
     render() {
         const {donateError}=this.props;
@@ -76,32 +78,39 @@ class Donate extends React.Component {
             display: this.state.paypal,
           };
         return (
-            <div>
-                <div>
+            <div className="donate-container">
+                <h4></h4>
+                <div className="donate-form-container">
                 <form onSubmit={this.handleSubmit}>
-                <div className="input-field">
-                        <label htmlFor="amount">amount</label>
-                        <input type="number" id="amount" onChange={this.handleChange} required/>
+                    <div className="donate-form-group">
+                        <div className="input-field">
+                            <label htmlFor="name">Name</label>
+                            <input type="text" id="name" onChange={this.handleChange} required/>
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="phone">Phone</label>
+                            <input type="number" id="phone" onChange={this.handleChange} required/>
+                        </div>
                     </div>
-                    <div className="input-field">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" id="name" onChange={this.handleChange} required/>
+                    <div className="donate-form-group">
+                        <div className="input-field">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" id="email" onChange={this.handleChange} required/>
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="address">Address</label>
+                            <input type="text" id="address" onChange={this.handleChange} required/>
+                        </div>
                     </div>
-                    <div className="input-field">
-                        <label htmlFor="phone">Phone</label>
-                        <input type="number" id="phone" onChange={this.handleChange} required/>
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={this.handleChange} required/>
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="address">Address</label>
-                        <input type="text" id="address" onChange={this.handleChange} required/>
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="purpose">Purpose</label>
-                        <input type="text" id="purpose" onChange={this.handleChange} required/>
+                    <div className="donate-form-group">
+                        <div className="input-field">
+                            <label htmlFor="purpose">Purpose</label>
+                            <input type="text" id="purpose" onChange={this.handleChange} required/>
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="amount">Amount</label>
+                            <input type="number" id="amount" onChange={this.handleChange} required/>
+                        </div>
                     </div>
                     <div className="input-field" style={proceed}>
                         <button type="submit">Proceed</button>
@@ -113,7 +122,7 @@ class Donate extends React.Component {
                     <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel}/>
                 </div>
            </div>
-           <div className="red-text center">{donateError ? <p>{donateError}</p>:null}</div>
+           <div className="alert">{donateError ? <p>{donateError}</p>:null}</div>
             </div>
         );
     }

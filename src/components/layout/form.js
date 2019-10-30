@@ -39,7 +39,8 @@ class Form extends React.Component{
         statusPart3:"none",
         previous:"hidden",
         next:"visible",
-        currTab:"1"
+        submit:"none",
+        currTab:"1",
     }
     handleChange=(e)=>{
         this.setState({
@@ -100,6 +101,7 @@ class Form extends React.Component{
             previous:"hidden",
             next:"block",
             currTab:"1",
+            submit:"none"
         }));
     }
     handleShow2=(e)=>{
@@ -114,6 +116,7 @@ class Form extends React.Component{
             previous:"visible",
             next:"block",
             currTab:"2",
+            submit:"none"
         }));
     }
     handleShow3=(e)=>{
@@ -128,11 +131,12 @@ class Form extends React.Component{
             previous:"visible",
             next:"none",
             currTab:"3",
+            submit:"block"
         }));
     }
     handlePrevious=(e)=>{
         e.preventDefault();
-        if(this.state.currTab=="2")
+        if(this.state.currTab==="2")
         {
             this.setState(() => ({
                 tab1:"tab-selected",
@@ -144,9 +148,10 @@ class Form extends React.Component{
                 currTab:"1",
                 previous:"hidden",
                 next:"block",
+                submit:"none"
             }));
         }
-        else if(this.state.currTab=="3")
+        else if(this.state.currTab==="3")
         {
             this.setState(() => ({
                 tab2:"tab-selected",
@@ -158,12 +163,13 @@ class Form extends React.Component{
                 currTab:"2",
                 previous:"visible",
                 next:"block",
+                submit:"none"
             }));
         }
     }
     handleNext=(e)=>{
         e.preventDefault();
-        if(this.state.currTab=="1")
+        if(this.state.currTab==="1")
         {
             this.setState(() => ({
                 tab2:"tab-selected",
@@ -175,9 +181,10 @@ class Form extends React.Component{
                 currTab:"2",
                 previous:"visible",
                 next:"block",
+                submit:"hidden"
             }));
         }
-        else if(this.state.currTab=="2")
+        else if(this.state.currTab==="2")
         {
             this.setState(() => ({
                 tab3:"tab-selected",
@@ -189,11 +196,13 @@ class Form extends React.Component{
                 currTab:"3",
                 previous:"visible",
                 next:"none",
+                submit:"block"
             }));
         }
     }
     handleSubmit=(e)=>{
         e.preventDefault();
+        console.log(this.state);
         const image = this.state.image;
         const image2 = this.state.image2;
         const fileName=this.state.name+this.state.phone;
@@ -217,6 +226,8 @@ class Form extends React.Component{
             }))
             this.props.createForm(this.state)
         })
+        document.querySelector('.alert').style.display="flex";
+        setTimeout(function(){ document.querySelector('.alert').style.display="none"; }, 6000);
         console.log(this.state);
     }
     
@@ -238,8 +249,11 @@ class Form extends React.Component{
         const nex={
             display:this.state.next
         }
+        const sub={
+            display:this.state.submit
+        }
         return(
-                <div className="container">
+                <div className="apply-container">
                     <h4>You are few steps Away from becoming an AIEF Member</h4>
                     <h5>Fill your details below:-</h5>
                     <div className="form-container">
@@ -261,7 +275,7 @@ class Form extends React.Component{
                             <img src={this.state.previewurl || 'https://demos.creative-tim.com/material-bootstrap-wizard/assets/img/default-avatar.png'} alt="Uploaded images"/>
                             <input type="file" id="profile-photo" onChange={this.handleImageChange} required/>
                             </div>
-                            <label for="profile-photo">CHOOSE PHOTO</label>
+                            <label htmlFor="profile-photo">CHOOSE PHOTO</label>
                         </div>
                         <div className="form-profile-details">
                         <div className="input-field">
@@ -344,7 +358,7 @@ class Form extends React.Component{
                             <img src={this.state.previewurl2 || 'https://cdn.website.thryv.com/5d1fe685b4a64589bc36d37fca3e09c2/dms3rep/multi/mobile/passport.png'} alt="Uploaded images"/>
                             <input type="file" id="document-photo" onChange={this.handleImageChange2} required/>
                             </div>
-                            <label for="document-photo">CHOOSE DOCUMENT</label>
+                            <label htmlFor="document-photo">CHOOSE DOCUMENT</label>
                         </div>
                         </div>
                         <div className="form-part-3" style={part_3}>
@@ -354,21 +368,21 @@ class Form extends React.Component{
                             <p>All AIEF post holders members, the new membership charges &#x20b9; 1500 only.</p>
                             <p>If any member of the office bearer of our organization is found guilty of being involved in illegal activities, cheating, duping or misuse of his ID card including the name of the organization, our AIEF will take no reponsibility for that, the administration is free to take legal action against him/her. </p>
                             <div className="accept-group">
-                                <input class="checkbox" type="checkbox" id="checkbox" />
-                                <label for="checkbox">I accept the terms and conditions</label>
+                                <input className="checkbox" type="checkbox" id="checkbox" />
+                                <label htmlFor="checkbox">I accept the terms and conditions</label>
                             </div>
-                        <div className="input-field">
-                            <button type="submit">SUBMIT</button>
-                        </div>
                         </div>
                         <div className="buttons">
                             <button onClick={this.handlePrevious} style={prev}>PREVIOUS</button>
                             <button onClick={this.handleNext} style={nex}>NEXT</button>
+                            <button type="submit" style={sub}>SUBMIT</button>
                         </div>
                     </form>
                     
                     </div>
-                    <div className="red-text center">{applyError ? <p>{applyError}</p>:null}</div>
+                    <div className="alert">
+                        {applyError ? <p>{applyError}</p>:null}
+                    </div>
                 </div>
         )
     }
