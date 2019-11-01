@@ -1,3 +1,5 @@
+/*ADMIN-LOGIN*/
+
 .login-form-container{
     margin-top: 15vh;
     width: 100%;
@@ -18,7 +20,10 @@
     box-shadow: 0 10px 20px rgba(159, 162, 177, .7);
     border-radius: 10px;
 }
-
+.login-form h1{
+    font-size: 1.5rem;
+    color: #f58634;
+}
 .login-form form{
     width: 100%;
     height: 70%;
@@ -56,8 +61,6 @@
 .login-form .input-field input:focus{
     border-bottom:2px solid #444444;
 }
-
-
 .login-form .submit-button button{
     width: 100px;
     height: 50px;
@@ -70,9 +73,189 @@
     letter-spacing: 4px;
     font-family: 'Open Sans', sans-serif;
 }
-
-.login-form .alert p{
-    color:#c4302b;
-    font-size: 1.2rem;
+.login-form .login-alert p{
+    color:#fff;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #c4302b;
     font-family: 'Open Sans', sans-serif;
+}
+
+
+/*DASHBOARD*/
+.dashboard-container{
+    display: flex;
+    width: 100%;
+}
+
+.dashboard-container .dashboard-sidebar{
+    width: 20vw;
+    border-top: 2px solid #e5e5e5;
+    background-color: #fff;
+    padding-top:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: none;
+    overflow-x:hidden;
+    transition: width 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;
+}
+
+.dashboard-container .dashboard-sidebar .show-tab-name h1 i{
+    font-size:3rem;
+    padding:0 0 20px 20px;
+    transform: rotate(0deg);
+    transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;
+}
+.dashboard-container .dashboard-sidebar .hide-tab-name h1 i{
+    font-size:3rem;
+    padding:20px 20px 0 0;
+    transform: rotate(180deg);
+    transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;
+}
+.dashboard-container .dashboard-sidebar h1{
+    color:#000;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.dashboard-container .dashboard-sidebar h1 i{
+    padding: 0 20px 0 0;
+    font-size: 2rem;
+}
+
+.dashboard-container .dashboard-sidebar .tab-selected h1{
+    color:#fff;
+}
+
+.dashboard-container .dashboard-sidebar .tab{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    padding:15px 30px;
+}
+.dashboard-container .dashboard-sidebar .tab-selected{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #000;
+    cursor: pointer;
+    border-radius:0 5px 5px 0;
+    border-left: 10px solid #c4302b;
+    padding:15px 20px;
+    transition: all 0.5s cubic-bezier(0.29, 1.42, 0.79, 1) 0s;
+}
+.dashboard-container .dashboard-sidebar .sign-out{
+    width: 100%;
+    text-align: center;
+}
+.dashboard-container .dashboard-sidebar .sign-out .signout{
+    color: #c4302b;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 20px;
+}
+
+.dashboard-container .dashboard-sidebar .sign-out .signout i{
+    color: #000;
+    padding: 0 10px;
+}
+
+
+.dashboard-container .dashboard-content{
+    padding: 60px 0;
+    width: 80vw;
+    height: 100%;
+}
+
+.dashboard-content .preview-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.dashboard-content .preview-container .first{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.dashboard-content .preview-container .first .top{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboard-content .preview-container .first .latest-event{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboard-content .preview-container .first .latest-event .event-card{
+    width: 300px;
+    height: 450px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    box-shadow: 0 2px 20px rgba(159, 162, 177, .4);
+}
+
+.dashboard-content .preview-container .first .latest-event .event-card img{
+    width: 100%;
+    height: 200px;
+}
+
+.dashboard-content .preview-container .first .latest-event .event-card h1{
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.dashboard-content .preview-container .first .latest-event .event-card h4{
+    font-size: 1.2rem;
+    text-align: center;
+}
+.dashboard-content .preview-container .first .latest-event .event-card h3{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.dashboard-content .preview-container .second{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.dashboard-content .preview-container .third{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }

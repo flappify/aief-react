@@ -1121,7 +1121,7 @@ li{
     background-color: #f6f6f6;
     outline: none;
     color: #444444;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-family: 'Open Sans', sans-serif;
 }
 .helpdesk .main .left .input-field input:focus{
@@ -1212,42 +1212,45 @@ textarea::-webkit-scrollbar-thumb{
 .helpdesk .main .right .social .social-icon a i{
     font-size: 1.4rem;
     line-height: 50px;
-    background:#444444;
-	background: -webkit-radial-gradient(33% 100% circle, #444444 4%, #444444 30%, #444444 62%, #444444 85%, #444444);
-	background: radial-gradient(circle at 33% 100%, #444444 4%, #444444 28%, #444444 62%, #444444 85%, #444444);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
 }
-.helpdesk .main .right .social .social-icon:nth-child(1):hover a i{
+.helpdesk .main .right .social .social-icon:nth-child(1) a i{
     background: -webkit-radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
     background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.helpdesk .main .right .social .social-icon:nth-child(2):hover a i{
+.helpdesk .main .right .social .social-icon:nth-child(2) a i{
     background: #3b5998;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.helpdesk .main .right .social .social-icon:nth-child(3):hover a i{
+.helpdesk .main .right .social .social-icon:nth-child(3) a i{
     background: #38A1F3;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.helpdesk .main .right .social .social-icon:nth-child(4):hover a i{
+.helpdesk .main .right .social .social-icon:nth-child(4) a i{
     background: #c4302b;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.helpdesk .main .right .social .social-icon:nth-child(5):hover a i{
+.helpdesk .main .right .social .social-icon:nth-child(5) a i{
     background: #0077B5;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.helpdesk .main .right .social .social-icon:hover a i{
+    background:#444444;
+	background: -webkit-radial-gradient(33% 100% circle, #444444 4%, #444444 30%, #444444 62%, #444444 85%, #444444);
+	background: radial-gradient(circle at 33% 100%, #444444 4%, #444444 28%, #444444 62%, #444444 85%, #444444);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 
 @media screen and (max-width:680px){
     .helpdesk{
@@ -1409,46 +1412,6 @@ textarea::-webkit-scrollbar-thumb{
     }
     .helpdesk .main .right .social .social-icon:hover{
         transform: scale(1.2);
-    }
-    
-    .helpdesk .main .right .social .social-icon a i{
-        font-size: 1.4rem;
-        line-height: 50px;
-        background:#444444;
-        background: -webkit-radial-gradient(33% 100% circle, #444444 4%, #444444 30%, #444444 62%, #444444 85%, #444444);
-        background: radial-gradient(circle at 33% 100%, #444444 4%, #444444 28%, #444444 62%, #444444 85%, #444444);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    .helpdesk .main .right .social .social-icon:nth-child(1):hover a i{
-        background: -webkit-radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-        background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
-    .helpdesk .main .right .social .social-icon:nth-child(2):hover a i{
-        background: #3b5998;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
-    .helpdesk .main .right .social .social-icon:nth-child(3):hover a i{
-        background: #38A1F3;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
-    .helpdesk .main .right .social .social-icon:nth-child(4):hover a i{
-        background: #c4302b;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    
-    .helpdesk .main .right .social .social-icon:nth-child(5):hover a i{
-        background: #0077B5;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
     }
 }
 

@@ -16,7 +16,6 @@ class SignIn extends React.Component{
     }
     handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(this.state);
         this.props.signIn(this.state);
     }
     render()
@@ -28,6 +27,7 @@ class SignIn extends React.Component{
             <AdminNav />
             <div className="login-form-container">
               <div className="login-form">
+                    <h1>ADMIN LOGIN</h1>
                   <form onSubmit={this.handleSubmit}>
                           <div className="input-field">
                               <label htmlFor="name">Name</label>

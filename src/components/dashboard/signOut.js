@@ -4,7 +4,7 @@ import {signOut} from '../../actions/authActions';
 import {Nav} from 'react-bootstrap';
 const SignOut=(props)=>{
     return(
-        <Nav.Link href="/" onClick={props.signOut}>Log Out</Nav.Link>
+        <Nav.Link href="/" onClick={props.signOut} className="signout"><i className="fas fa-power-off"></i></Nav.Link>
     )
 }
 
