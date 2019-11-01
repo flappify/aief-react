@@ -1,9 +1,9 @@
 import React from 'react';
-import {Form,Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {signIn} from '../../actions/authActions';
 import {Redirect} from 'react-router-dom';
-import NavBar from '../layout/Navbar';
+import AdminNav from '../dashboard/adminNav';
+import "../dashboard/dashboard.css"
 class SignIn extends React.Component{
     state={
         email:'',
@@ -16,6 +16,7 @@ class SignIn extends React.Component{
     }
     handleSubmit=(e)=>{
         e.preventDefault();
+        console.log(this.state);
         this.props.signIn(this.state);
     }
     render()
@@ -24,25 +25,26 @@ class SignIn extends React.Component{
       if(auth.uid) return <Redirect to='/urna/dashboard' />
         return(
             <div>
-            <NavBar/>
-              <Form onSubmit={this.handleSubmit}>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" id="email" placeholder="Enter email" onChange={this.handleChange} />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
-
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" id="password" placeholder="Password" onChange={this.handleChange} />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-  <div className="red-text center">{authError ? <p>{authError}</p>:null}</div>
-</Form>
+            <AdminNav />
+            <div className="login-form-container">
+              <div className="login-form">
+                  <form onSubmit={this.handleSubmit}>
+                          <div className="input-field">
+                              <label htmlFor="name">Name</label>
+                              <input type="text" id="email" onChange={this.handleChange} required/>
+                          </div>
+                          <div className="input-field">
+                              <label htmlFor="password">Password</label>
+                              <input type="password" id="password" onChange={this.handleChange} required/>
+                          </div>
+                      <div className="submit-button">
+                          <button type="submit">LOGIN</button>
+                      </div>
+                  </form>
+                  <div className="login-alert">{authError ? <p>{authError}</p>:null}</div>
+                </div>
+              </div>
+              
             </div>
         )
     }

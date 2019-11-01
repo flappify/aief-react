@@ -78,10 +78,15 @@ li{
     font-family: 'Muli', sans-serif;
     text-decoration: none;
     color: #f58634;
-    border-radius: 5px;
 }
 .navbar .menu .menu-list ul li a:hover{
     color: #FED373;
+}
+.navbar .menu .menu-list ul li:nth-child(4) a{
+    background-color: #f58634;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 20px ;
 }
 .menu .menu-list ul li .hamburger{
     height: 1.6rem;
@@ -251,6 +256,14 @@ li{
     padding: 1.5vh 2vh;
     border-radius: 5px;
 }
+
+
+.navbarSmall .menu .menu-list ul li:nth-child(4) a{
+    background-color: #f58634;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 20px ;
+    }
 .navbarSmall .menu .menu-list ul li a:hover
 {
     background-color: #ffebca;
@@ -1149,7 +1162,7 @@ textarea::-webkit-scrollbar-thumb{
     border:none;
     border-radius: 5px;
     color: #f6f6f6;
-    background-color: #444444;
+    background-color: #f58634;
     font-size: 1rem;
     line-height: 50px;
     letter-spacing: 4px;

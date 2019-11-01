@@ -275,7 +275,7 @@ class Form extends React.Component{
                             <img src={this.state.previewurl || 'https://demos.creative-tim.com/material-bootstrap-wizard/assets/img/default-avatar.png'} alt="Uploaded images"/>
                             <input type="file" id="profile-photo" onChange={this.handleImageChange} required/>
                             </div>
-                            <label htmlFor="profile-photo">CHOOSE PHOTO</label>
+                            <label htmlFor="profile-photo">UPLOAD PHOTO</label>
                         </div>
                         <div className="form-profile-details">
                         <div className="input-field">
@@ -358,7 +358,7 @@ class Form extends React.Component{
                             <img src={this.state.previewurl2 || 'https://cdn.website.thryv.com/5d1fe685b4a64589bc36d37fca3e09c2/dms3rep/multi/mobile/passport.png'} alt="Uploaded images"/>
                             <input type="file" id="document-photo" onChange={this.handleImageChange2} required/>
                             </div>
-                            <label htmlFor="document-photo">CHOOSE DOCUMENT</label>
+                            <label htmlFor="document-photo">UPLOAD DOCUMENT</label>
                         </div>
                         </div>
                         <div className="form-part-3" style={part_3}>

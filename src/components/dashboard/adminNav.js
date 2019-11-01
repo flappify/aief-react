@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import SignOut from './signOut';
-
+import "./dashboard.css";
 class AdminNav extends React.Component{
   state={
     nav:"navbarSmall",

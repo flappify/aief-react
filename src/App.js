@@ -10,6 +10,7 @@ import HelpDetails from './components/helpdesk/helpdeskDetails';
 import CreateEvent from './components/events/eventCreate';
 import Apply from './components/layout/apply';
 import Donation from './components/layout/donation';
+import Vision from './components/layout/vision';
 import './App.css';
 class App extends React.Component{
   render(){
@@ -17,10 +18,11 @@ class App extends React.Component{
       <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/events/:id" component={EventDetails} />
+        <Route exact path="/vision" component={Vision} />
         <Route exact path="/apply" component={Apply} />
         <Route exact path="/donate" component={Donation} />
         <Route exact path="/urna" component={SignIn} />
+        <Route exact path="/events/:id" component={EventDetails} />
         <Route exact path="/urna/dashboard" component={Dashboard} />
         <Route path="/urna/dashboard/application/:id" component={FormDetails} />
         <Route path="/urna/dashboard/donation/:id" component={DonationDetails} />
