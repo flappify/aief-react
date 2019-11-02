@@ -15,7 +15,7 @@ class Preview extends React.Component{
     }
     render()
     {
-        var total=0,td="0",formListCount=0,formCount=0,eventName="NULL",eventImageURL="NULL",eventSD="NULL",eventDate="NULL";
+        var total=0,td="0",formListCount=0,helpListCount=0,helpCount=0,formCount=0,eventName="NULL",eventImageURL="NULL",eventSD="NULL",eventDate="NULL";
         const {donations,forms,helps,events}=this.props;
         return(
             <div className="preview-container">
@@ -32,15 +32,21 @@ class Preview extends React.Component{
                             currency: 'INR'
                             });
                         })}
-                        <h5>Total Donation</h5>
-                        <p>{td}</p>
+                        <div className="donation-icon"><i className="fas fa-rupee-sign"></i></div>
+                        <div className="header">
+                            <h5>Total Donation</h5>
+                            <p>{td}</p>
+                        </div>
                         </div>
                         <div className="form-count">
                             {forms && forms.map(form=>{
                                 formCount++;
                             })}
-                            <h5>Total Applications</h5>
-                            <p>{formCount}</p>
+                            <div className="form-icon"><i className="fas fa-user-tie"></i></div>
+                            <div className="header">
+                                <h5>Total Applications</h5>
+                                <p>{formCount}</p>
+                            </div>
                         </div>
                     </div>
                     <div className="latest-event">
@@ -61,29 +67,59 @@ class Preview extends React.Component{
                 </div>
                 <div className="second">
                     <div className="help-list-5">
-                    <h1>Help Requests</h1>
+                    <div className="header">
+                            {helps && helps.map(help=>{
+                                helpCount++;
+                            })}
+                        <div className="help-icon">
+                            <i className="fas fa-hands-helping"></i>
+                        </div>
+                        <h1>Help Requests</h1>
+                        <p>{helpCount}</p>
+                    </div>
                     {helps && helps.map(help=>{
-                        return(
-                            <div key={help.id}>
-                            <Link to={'/urna/dashboard/helpdesk/'+help.id} key={help.id}>
-                                <HelpSummary key={help.id} help={help} />
+                        var hfl=help.name.charAt(0);
+                        helpListCount++;
+                        if(helpListCount<6){
+                            return(
+                            <div className="help-card" key={help.id}>
+                            <Link to={'/urna/dashboard/helpdesk/'+help.id} key={help.id} style={{ textDecoration: 'none' }}>
+                                <div className="help-card-content">
+                                    <h1>{hfl}</h1>
+                                    <div className="help-detail">
+                                        <h5>{help.name}</h5>
+                                        <p>{help.subject}</p>
+                                    </div>
+                                </div>
                             </Link>
                             </div>
                         )
+                        }
                     })}
                     </div>
                 </div>
                 <div className="third">
-                <div className="apply-list-6">
-                        <h1>Form List</h1>
+                <div className="form-list-6">
+                        <div className="header">
+                            <div className="form-icon">
+                                <i className="fas fa-file-signature"></i>
+                            </div>
+                            <h1>Applications</h1>
+                            <p>Recent 6</p>
+                        </div>
                         {forms && forms.map(form=>{
                             formListCount++;
                             if(formListCount<6)
                             {
                                 return(
-                                <div key={form.id}>
-                                    <Link to={'/urna/dashboard/application/'+form.id} key={form.id}>
-                                    <FormSummary form={form} key={form.id}/>
+                                <div className="form-card" key={form.id}>
+                                    <Link to={'/urna/dashboard/application/'+form.id} key={form.id} style={{ textDecoration: 'none' }}>
+                                    <div className="form-card-content">
+                                        <div className="card-image">
+                                            <img src={form.url} alt="profile-picture" />
+                                        </div>
+                                        <h5>{form.name}</h5>
+                                    </div>
                                     </Link>
                                 </div>
                             )
@@ -112,7 +148,7 @@ const mapStateToProps=(state)=>{
     firestoreConnect([
         {collection:'forms',orderBy:['createdAt','desc']},
         {collection:'donations'},
-        {collection:'helpDesk',limit:5,orderBy:['dateTime','desc']},
+        {collection:'helpDesk'},
         {collection:'events',limit:1,orderBy:['createdAt','desc']},
     ])
   )(Preview)

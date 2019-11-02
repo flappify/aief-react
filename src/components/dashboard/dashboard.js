@@ -1,16 +1,12 @@
 import React from 'react';
-import AdminNav from './adminNav';
-import {Container,Row,Col} from 'react-bootstrap';
 import SignOut from './signOut';
 import Preview from './preview';
-import Notification from './notification';
-import FormTop from './formTop';
-import DonationTop from './donationTop';
-import QueriesTop from './queriesTop';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {firestoreConnect } from 'react-redux-firebase';
-import {compose} from 'redux';
+import DonationList from '../donation/donationList';
+import FormList from "../form/formList";
+import HelpList from '../helpdesk/helpdeskList';
+import CreateEvent from '../events/eventCreate';
 import "./dashboard.css";
 class Dashboard extends React.Component{
       state={
@@ -22,10 +18,7 @@ class Dashboard extends React.Component{
         tab2:"tab",
         tab3:"tab",
         tab4:"tab",
-        tab1detail:"tab-detail-selected",
-        tab2detail:"tab-detail",
-        tab3detail:"tab-detail",
-        tab4detail:"tab-detail",
+        tab5:"tab",
         sidebar:"show-tab-name",
         }
 
@@ -39,7 +32,9 @@ class Dashboard extends React.Component{
               document.querySelector(".tab-text-2").style.display="none";
               document.querySelector(".tab-text-3").style.display="none";
               document.querySelector(".tab-text-4").style.display="none";
-              document.querySelector(".dashboard-sidebar").style.width="5.5vw";
+              document.querySelector(".tab-text-5").style.display="none";
+              document.querySelector(".dashboard-sidebar").style.width="6vw";
+              document.querySelector(".dashboard-content").style.width="93vw";
           }
           else{
             this.setState(() => ({
@@ -49,7 +44,9 @@ class Dashboard extends React.Component{
             document.querySelector(".tab-text-2").style.display="block";
             document.querySelector(".tab-text-3").style.display="block";
             document.querySelector(".tab-text-4").style.display="block";
+            document.querySelector(".tab-text-5").style.display="block";
             document.querySelector(".dashboard-sidebar").style.width="20vw";
+            document.querySelector(".dashboard-content").style.width="80vw";
           }
           console.log(this.state);
         }
@@ -62,10 +59,7 @@ class Dashboard extends React.Component{
                   tab2:"tab",
                   tab3:"tab",
                   tab4:"tab",
-                  tab1detail:"tab-detail-selected",
-                  tab2detail:"tab-detail",
-                  tab3detail:"tab-detail",
-                  tab4detail:"tab-detail",
+                  tab5:"tab",
               }));
           }
           console.log(this.state);
@@ -78,10 +72,7 @@ class Dashboard extends React.Component{
                   tab2:"tab-selected",
                   tab3:"tab",
                   tab4:"tab",
-                  tab1detail:"tab-detail",
-                  tab2detail:"tab-detail-selected",
-                  tab3detail:"tab-detail",
-                  tab4detail:"tab-detail",
+                  tab5:"tab",
               }));
           }
           console.log(this.state);
@@ -94,10 +85,7 @@ class Dashboard extends React.Component{
                   tab2:"tab",
                   tab4:"tab",
                   tab3:"tab-selected",
-                  tab1detail:"tab-detail",
-                  tab2detail:"tab-detail",
-                  tab3detail:"tab-detail-selected",
-                  tab4detail:"tab-detail",
+                  tab5:"tab",
               }));
           }
           console.log(this.state);
@@ -110,14 +98,24 @@ class Dashboard extends React.Component{
                 tab2:"tab",
                 tab4:"tab-selected",
                 tab3:"tab",
-                tab1detail:"tab-detail",
-                tab2detail:"tab-detail",
-                tab4detail:"tab-detail-selected",
-                tab3detail:"tab-detail",
+                tab5:"tab",
             }));
         }
         console.log(this.state);
     }
+    handleShow5=()=>{
+      if(this.state.tab5==="tab")
+      {
+          this.setState(() => ({
+              tab1:"tab",
+              tab2:"tab",
+              tab5:"tab-selected",
+              tab3:"tab",
+              tab4:"tab",
+          }));
+      }
+      console.log(this.state);
+  }
     render()
     {
       const {auth,profile,helps,forms,donations}=this.props;
@@ -131,21 +129,16 @@ class Dashboard extends React.Component{
                   <div className={this.state.tab1} onClick={this.handleShow1}><h1><i className="fas fa-border-all"></i><span className="tab-text-1">Dashboard</span></h1></div>
                   <div className={this.state.tab2} onClick={this.handleShow2}><h1><i className="fas fa-hand-holding-usd"></i><span className="tab-text-2">Donations</span></h1></div>
                   <div className={this.state.tab3} onClick={this.handleShow3}><h1><i className="fab fa-wpforms"></i><span className="tab-text-3">Applicants</span></h1></div>
-                  <div className={this.state.tab4} onClick={this.handleShow4}><h1><i className="fab fa-elementor"></i><span className="tab-text-4">Event Creation</span></h1></div>
+                  <div className={this.state.tab4} onClick={this.handleShow4}><h1><i className="far fa-comments"></i><span className="tab-text-4">HelpDesk</span></h1></div>
+                  <div className={this.state.tab5} onClick={this.handleShow5}><h1><i className="fab fa-elementor"></i><span className="tab-text-5">EventCreation</span></h1></div>
                   <div className="sign-out"><SignOut profile={profile}/></div>
                 </div>
                 <div className="dashboard-content">
-                  <Preview/>
-                  {/* <Container>
-                    <Row>
-                      <Col sm={10}><FormTop forms={forms}/></Col>
-                      <Col sm={10}><Notification/></Col>
-                    </Row>
-                    <Row>
-                      <Col sm={10}><DonationTop donations={donations}/></Col>
-                      <Col sm={10}><QueriesTop helps={helps}/></Col>
-                    </Row>
-                  </Container>*/}
+                {this.state.tab1==="tab-selected" && <Preview />}
+                {this.state.tab2==="tab-selected" && <DonationList />}
+                {this.state.tab3==="tab-selected" && <FormList />}
+                {this.state.tab4==="tab-selected" && <HelpList />}
+                {this.state.tab5==="tab-selected" && <CreateEvent />}
                 </div>
               </div>
             </div>
@@ -156,18 +149,8 @@ class Dashboard extends React.Component{
 const mapStateToProps=(state)=>{
   return{
     auth:state.firebase.auth,
-    helps:state.firestore.ordered.helpDesk,
-    forms:state.firestore.ordered.forms,
-    donations:state.donate.donations,
     profile:state.firebase.profile
   }
 }
 
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect([
-      {collection:'forms',limit:3,orderBy:['createdAt','desc']},
-      {collection:'donations',orderBy:['createdAt','desc']},
-      {collection:'helpDesk',limit:3,orderBy:['dateTime','desc']},
-  ])
-)(Dashboard)
+export default connect(mapStateToProps)(Dashboard)

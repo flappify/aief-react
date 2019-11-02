@@ -6,6 +6,7 @@ class HelpDesk extends React.Component{
     state={
         name:"",
         phone:"",
+        subject:"",
         message:"",
     }
 
@@ -40,6 +41,10 @@ class HelpDesk extends React.Component{
                                     <input type="text" id="phone" onChange={this.handleChange} required/>
                                 </div>
                             </div>
+                            <div className="input-field">
+                                    <label htmlFor="subject">Subject</label>
+                                    <input type="text" id="subject" onChange={this.handleChange} required/>
+                                </div>
                             <div className="form-last">
                                 <div className="input-field">
                                     <label htmlFor="message">Message</label>

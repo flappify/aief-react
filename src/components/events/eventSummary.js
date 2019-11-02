@@ -1,7 +1,6 @@
 import React from 'react';
 const EventSummary=({event})=>{
         return(
-            
             <div className="event" >
                 <div className="event-img">
                     <img src={event.url} alt="eventImage" />

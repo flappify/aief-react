@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import AdminNav from '../dashboard/adminNav';
 import {createEvent} from '../../actions/eventActions';
 import firebase from '../../config/firebase';
 import './event.css';
@@ -71,7 +70,6 @@ class CreateEvent extends React.Component{
         const {eventError}=this.props;
         return(
             <div>
-                <AdminNav/>
                 <div className="card-creation">
                     <div className="main">
                     <div className="top">
@@ -82,7 +80,7 @@ class CreateEvent extends React.Component{
                             <form onSubmit={this.handleSubmit} id="createEvent">
                                 <div className="input-file">
                                     <input type="file" name="file" id="file" class="inputfile" onChange={this.handleImageChange} required/>
-                                    <label for="file">Choose an Image</label>
+                                    <label htmlForfor="file">Choose an Image</label>
                                 </div>
                                 <div className="input-field">
                                     <label htmlFor="eventName">Event Name</label>

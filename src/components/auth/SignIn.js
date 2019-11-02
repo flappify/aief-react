@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {signIn} from '../../actions/authActions';
 import {Redirect} from 'react-router-dom';
-import AdminNav from '../dashboard/adminNav';
 import "../dashboard/dashboard.css"
 class SignIn extends React.Component{
     state={
@@ -24,7 +23,6 @@ class SignIn extends React.Component{
       if(auth.uid) return <Redirect to='/urna/dashboard' />
         return(
             <div>
-            <AdminNav />
             <div className="login-form-container">
               <div className="login-form">
                     <h1>ADMIN LOGIN</h1>

@@ -26,7 +26,7 @@ class App extends React.Component{
         <Route exact path="/urna/dashboard" component={Dashboard} />
         <Route path="/urna/dashboard/application/:id" component={FormDetails} />
         <Route path="/urna/dashboard/donation/:id" component={DonationDetails} />
-        <Route path="/urna/dashboard/helpdesk/:id" component={HelpDetails} />
+        <Route path="/urna/dashboard/helpDesk/:id" component={HelpDetails} />
         <Route path="/urna/dashboard/CreateEvent" component={CreateEvent} />
       </Switch>
       </BrowserRouter>
