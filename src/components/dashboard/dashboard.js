@@ -121,11 +121,10 @@ class Dashboard extends React.Component{
   }
     render()
     {
-      const {auth,profile,helps,forms,donations}=this.props;
+      const {auth,profile}=this.props;
       if(!auth.uid) return <Redirect to='/urna' />
         return(
             <div>
-              {/*<AdminNav/>*/}
               <div className="dashboard-container">
                 <div className="dashboard-sidebar">
                   <div className={this.state.sidebar} onClick={this.handleShow}><h1><i className="fas fa-caret-square-left"></i></h1></div>
@@ -134,7 +133,7 @@ class Dashboard extends React.Component{
                   <div className={this.state.tab3} onClick={this.handleShow3}><h1><i className="fab fa-wpforms"></i><span className="tab-text-3">Applicants</span></h1></div>
                   <div className={this.state.tab4} onClick={this.handleShow4}><h1><i className="far fa-comments"></i><span className="tab-text-4">HelpDesk</span></h1></div>
                   <div className={this.state.tab5} onClick={this.handleShow5}><h1><i className="fab fa-elementor"></i><span className="tab-text-5">EventCreation</span></h1></div>
-                  <div className={this.state.tab6} onClick={this.handleShow6}><a href="/" style={{textDecoration:"none"}}><h1><i class="fas fa-globe-asia"></i><span className="tab-text-6">Home</span></h1></a></div>
+                  <div className={this.state.tab6} onClick={this.handleShow6}><a href="/" style={{textDecoration:"none"}}><h1><i className="fas fa-globe-asia"></i><span className="tab-text-6">Home</span></h1></a></div>
                   <div className="sign-out"><SignOut profile={profile}/></div>
                 </div>
                 <div className="dashboard-content">

@@ -15,44 +15,44 @@ import PhotoGallery from './gallery';
 import Footer from './footer';
 import Intro from './intro';
 
-
 import Loading from './loader';
 
 class Home extends React.Component{
     state={
-        load:"true"
+        load:true
     }
     componentDidMount(){
-        this.setState(()=>({
-            load:"false"
-        }));
+        window.onload=function(){
+            document.querySelector('.home').style.display="block";
+            document.querySelector('.load').style.display="none";
+        }
     }
     render()
     {
         const {events}=this.props;
-        if(this.state.load==='true'){
-            return(
-                <div className="loader">
-                    <Loading/>
+        return(
+            <div>
+            <div className="load">
+                <div className="divLoader">
+                    <svg className="svgLoader" viewBox="0 0 100 100" width="10em" height="10em">
+                    <path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#F58634" transform="rotate(179.719 50 51)"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path>
+                    </svg>
                 </div>
-            )
-        }
-        else{
-            return(
-                <div>
-                    <Navbar/>
-                    <Intro/>
-                    <Section2/>
-                    <Section3/>
-                    <Section4/>
-                    <Events events={events}/>
-                    <HelpDesk/>
-                    <SupportSpeak/>
-                    <PhotoGallery/>
-                    <Footer/>
-                </div>
-            )
-        }
+            </div>
+                <div className="home" style={{display:"none"}}>
+                <Navbar/>
+                <Intro/>
+                <Section2/>
+                <Section3/>
+                <Section4/>
+                <Events events={events}/>
+                <HelpDesk/>
+                <SupportSpeak/>
+                <PhotoGallery/>
+                <Footer/>
+            </div>
+            </div>
+        )
     }
 }
 

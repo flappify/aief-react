@@ -3,16 +3,7 @@ import {Link} from 'react-router-dom';
 import {firestoreConnect } from 'react-redux-firebase';
 import {compose} from 'redux';
 import {connect} from 'react-redux';
-import HelpSummary from '../helpdesk/helpdeskSummary';
-import FormSummary from '../form/formSummary';
 class Preview extends React.Component{
-    
-    componentDidMount() {
-        
-    }
-    
-    componentWillUnmount() {
-    }
     render()
     {
         var total=0,td="0",formListCount=0,helpListCount=0,helpCount=0,formCount=0,eventName="NULL",eventImageURL="NULL",eventSD="NULL",eventDate="NULL";
