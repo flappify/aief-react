@@ -19,6 +19,7 @@ class Dashboard extends React.Component{
         tab3:"tab",
         tab4:"tab",
         tab5:"tab",
+        tab6:"tab",
         sidebar:"show-tab-name",
         }
 
@@ -33,6 +34,7 @@ class Dashboard extends React.Component{
               document.querySelector(".tab-text-3").style.display="none";
               document.querySelector(".tab-text-4").style.display="none";
               document.querySelector(".tab-text-5").style.display="none";
+              document.querySelector(".tab-text-6").style.display="none";
               document.querySelector(".dashboard-sidebar").style.width="6vw";
               document.querySelector(".dashboard-content").style.width="93vw";
           }
@@ -45,6 +47,7 @@ class Dashboard extends React.Component{
             document.querySelector(".tab-text-3").style.display="block";
             document.querySelector(".tab-text-4").style.display="block";
             document.querySelector(".tab-text-5").style.display="block";
+            document.querySelector(".tab-text-6").style.display="block";
             document.querySelector(".dashboard-sidebar").style.width="20vw";
             document.querySelector(".dashboard-content").style.width="80vw";
           }
@@ -131,6 +134,7 @@ class Dashboard extends React.Component{
                   <div className={this.state.tab3} onClick={this.handleShow3}><h1><i className="fab fa-wpforms"></i><span className="tab-text-3">Applicants</span></h1></div>
                   <div className={this.state.tab4} onClick={this.handleShow4}><h1><i className="far fa-comments"></i><span className="tab-text-4">HelpDesk</span></h1></div>
                   <div className={this.state.tab5} onClick={this.handleShow5}><h1><i className="fab fa-elementor"></i><span className="tab-text-5">EventCreation</span></h1></div>
+                  <div className={this.state.tab6} onClick={this.handleShow6}><a href="/" style={{textDecoration:"none"}}><h1><i class="fas fa-globe-asia"></i><span className="tab-text-6">Home</span></h1></a></div>
                   <div className="sign-out"><SignOut profile={profile}/></div>
                 </div>
                 <div className="dashboard-content">

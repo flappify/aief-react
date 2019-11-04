@@ -1,14 +1,22 @@
 import React from 'react';
-import {Nav} from 'react-bootstrap';
-
-
+import {connect} from 'react-redux';
 class SignedIn extends React.Component{
     render()
     {
-        return(
-                <Nav.Link href="/urna">Admin Control</Nav.Link>
-        )
+        const {auth}=this.props
+        if(auth.uid){
+            return(
+                <li><a href="/urna" style={{color:"crimson"}}>Admin Control</a></li>
+            )
+        }
+        else{
+            return null;
+        }
     }
 }
-
-export default SignedIn;
+const mapStateToProps=(state)=>{
+    return{
+        auth:state.firebase.auth
+    }
+}
+export default connect(mapStateToProps)(SignedIn);

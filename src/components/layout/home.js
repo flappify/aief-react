@@ -15,24 +15,44 @@ import PhotoGallery from './gallery';
 import Footer from './footer';
 import Intro from './intro';
 
+
+import Loading from './loader';
+
 class Home extends React.Component{
+    state={
+        load:"true"
+    }
+    componentDidMount(){
+        this.setState(()=>({
+            load:"false"
+        }));
+    }
     render()
     {
         const {events}=this.props;
-        return(
-            <div>
-                <Navbar/>
-                <Intro/>
-                <Section2/>
-                <Section3/>
-                <Section4/>
-                <Events events={events}/>
-                <HelpDesk/>
-                <SupportSpeak/>
-                <PhotoGallery/>
-                <Footer/>
-            </div>
-        )
+        if(this.state.load==='true'){
+            return(
+                <div className="loader">
+                    <Loading/>
+                </div>
+            )
+        }
+        else{
+            return(
+                <div>
+                    <Navbar/>
+                    <Intro/>
+                    <Section2/>
+                    <Section3/>
+                    <Section4/>
+                    <Events events={events}/>
+                    <HelpDesk/>
+                    <SupportSpeak/>
+                    <PhotoGallery/>
+                    <Footer/>
+                </div>
+            )
+        }
     }
 }
 

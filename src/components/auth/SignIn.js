@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {signIn} from '../../actions/authActions';
 import {Redirect} from 'react-router-dom';
 import "../dashboard/dashboard.css"
+
 class SignIn extends React.Component{
     state={
         email:'',
