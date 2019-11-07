@@ -26,7 +26,7 @@ class Home extends React.Component{
             const left = document.querySelector(".introLeft");
             const introImageReveal = document.querySelector(".introImageReveal");
             const introImage = document.querySelector(".introImage");
-            TweenLite.from(left,0.5, {x:-100,ease:Power2.easeInOut});
+            TweenLite.from(left,1, {x:-100,ease:Power2.easeInOut});
             TweenLite.to(introImageReveal,1.4, {width:"0%",ease:Power2.easeInOut});
             TweenLite.from(introImage,1.2, {transform:"scale(1.4)",ease:Power2.easeInOut,delay:0.2});
         }

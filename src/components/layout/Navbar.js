@@ -29,7 +29,7 @@ class NavBar extends React.Component{
       {
         this.setState(()=>({
           nav:"navbarSmall"
-      }));
+        }));
       }
       else{
         this.setState(()=>({

@@ -225,8 +225,8 @@ li{
     position: fixed;
     top: 0;
     z-index: 9999;
-    margin: 5vh 15vw;
-    width: 70vw;
+    margin: 5vh 20vw;
+    width: 60vw;
     height: 10vh;
     background: #fff;
     border-radius: 10px;
@@ -259,7 +259,7 @@ li{
 }
 
 .navbarSmall .menu .menu-list ul li a{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: 'Muli', sans-serif;
     text-decoration: none;
     color: #f58634;
@@ -510,6 +510,23 @@ li{
 .section2 .main .left h1{
     font-size: 3rem;
     font-family: 'Domine', serif;
+    animation-name: waw;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
+}
+@keyframes waw{
+    0%{
+        transform: translateY(0px);
+        transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
+    }
+    50%{
+        transform: translateY(-20px);
+        transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
+    }
+    100%{
+        transform: translateY(0px);
+        transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
+    }
 }
 .section2 .main .left p{
     font-size: 1.2rem;
@@ -522,16 +539,21 @@ li{
     position: relative;
 }
 .section2 .main .right .images{
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
     -webkit-clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
     clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
-    
+    cursor: pointer;
+    overflow: hidden;
 }
 .section2 .main .right .images img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.section2 .main .right .images:hover img{
+    transform: scale(1.5);
+    transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
 }
 .section2 .main .right .images:nth-child(1)
 {
@@ -542,26 +564,26 @@ li{
 .section2 .main .right .images:nth-child(2)
 {
     position: absolute;
-    top: 20px;
-    left:170px;
+    top: 50px;
+    left:140px;
 }
 .section2 .main .right .images:nth-child(3)
 {
     position: absolute;
-    top: 220px;
-    left:230px;
+    top: 190px;
+    left:200px;
 }
 .section2 .main .right .images:nth-child(4)
 {
     position: absolute;
     top: 90px;
-    left: 360px;
+    left: 300px;
 }
 .section2 .main .right .images:nth-child(5)
 {
     position: absolute;
-    top: 260px;
-    left: 450px;
+    top: 230px;
+    left: 360px;
 }
 
 @media screen and (max-width:680px){
@@ -635,7 +657,7 @@ li{
 .section3{
     margin:100px 0;
     width: 100%;
-    height: 50vh;
+    height: 55vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -696,8 +718,8 @@ li{
 }
 
 .section3 .main .right img{
-    height: 65vh;
-    transform: translateY(-20px);
+    height: 70vh;
+    transform: translateY(-15px);
 }
 
 @media screen and (max-width:1200px)
@@ -903,10 +925,10 @@ li{
 /*EVENTS*/
 .events{
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     background-image: linear-gradient(to bottom,#fff,#f6f6f6,#fff);
 }
@@ -918,6 +940,7 @@ li{
     font-family: 'Domine', serif;
 }
 .events .event-list{
+    height: 80%;
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -927,15 +950,20 @@ li{
 .event{
     background-color:#fff;
     width: 300px;
-    height: 400px;
+    height: 380px;
     overflow: hidden;
     border-radius: 4px;
     box-shadow: 0 2px 20px rgba(159, 162, 177, .4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    cursor: pointer;
 }
 .event .event-img {
     width: 100%;
-    height: 50%;
-    margin-bottom: 5px;
+    height: 220px;
     overflow: hidden;
 }
 .event .event-img img{
@@ -944,48 +972,51 @@ li{
     object-fit: cover;
     
 }
-.event .event-img:hover img{
+.event:hover .event-img img{
     transform: scale(1.4);
     transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
 }
 .event .event-details{
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .event .event-details h1{
-    width: 90%;
-    text-align: center;
     font-size:1.5rem;
-    height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    width: 95%;
     text-align: center;
     color: #604338;
-    font-family: 'Muli', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     box-shadow: none;
-    margin: 0;
 }
 
 .event .event-details p{
-    font-size:1.1rem;
-    height: 60px;
-    overflow: hidden;
+    font-size:1.2rem;
+    width: 90%;
     text-align: center;
-    margin:0.5rem;
     color: #98b4c0;
     font-family: 'Open Sans', sans-serif;
+    display: none;
 }
 
 .event .event-details h2{
-    font-size:1.2rem;
-    margin:1rem 0.5rem;
+    font-size:1.4rem;
     color: #000;
     text-align: center;
-    font-family: 'Muli', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+.event:hover{
+    height: 480px;
+    transition: height .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
+}
+.event:hover .event-details p{
+    display: block;
+    transition: display 0.35s ease-out;
 }
 @media screen and (max-width:680px){
     .events{
@@ -1088,7 +1119,7 @@ li{
 
 .helpdesk .main{
     width: 80%;
-    height: 70%;
+    height: 80%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

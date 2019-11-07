@@ -7,10 +7,10 @@ import './event.css';
 class CreateEvent extends React.Component{
     state={
         image:"",
-        eventName:"Lorel Ipsum Dummy Text",
-        eventshDesc:"Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        eventName:"5th India International Science Festival",
+        eventshDesc:"Curtain raiser event at IIIM tomorrow Excelsior Correspondent JAMMU",
         eventDesc:"",
-        eventDate:"2019-17-10",
+        eventDate:"Nov 5th to 8th, 2019",
         previewurl:"",
         url:"",
         redirectToReferrer:false,
@@ -84,11 +84,11 @@ class CreateEvent extends React.Component{
                                 </div>
                                 <div className="input-field">
                                     <label htmlFor="eventName">Event Name</label>
-                                    <input type="text" id="eventName" onChange={this.handleChange} required/>
+                                    <input type="text" id="eventName" onChange={this.handleChange} maxLength="50" required/>
                                 </div>
                                 <div className="input-field">
                                     <label htmlFor="eventshDesc">Event Short Description</label>
-                                    <input type="text" id="eventshDesc" onChange={this.handleChange} required/>
+                                    <input type="text" id="eventshDesc" onChange={this.handleChange} maxLength="100" required/>
                                 </div>
                                 <div className="input-field">
                                     <label htmlFor="eventDesc">Event Description</label>
@@ -96,7 +96,7 @@ class CreateEvent extends React.Component{
                                 </div>
                                 <div className="input-field">
                                     <label htmlFor="eventDate">Event Date</label>
-                                    <input type="text" id="eventDate" onChange={this.handleChange} required/>
+                                    <input type="text" id="eventDate" onChange={this.handleChange} maxLength="15" required/>
                                 </div>
                                 <div className="submit">
                                     <button type="submit">Create Event</button>
