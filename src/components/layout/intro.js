@@ -1,10 +1,14 @@
 import React from 'react';
+
 class Intro extends React.Component{
+    componentDidMount(){
+        
+    }
     render()
     {
         return(
             <div className="intro">
-                <div className="left">
+                <div className="left introLeft">
                     <div className="top">
                         <h1>New way<br/>to give back</h1>
                         <p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price You may see some for as low as each.</p>
@@ -14,7 +18,8 @@ class Intro extends React.Component{
                     </div>
                 </div>
                 <div className="right">
-                    <img src={require('./home-banner-img.jpg')} />
+                    <div className="introImageReveal"></div>
+                    <img className="introImage" src={require('./home-banner-img.jpg')}  alt="intro"/>
                 </div>
             </div>
         )

@@ -6,7 +6,7 @@ class Section2 extends React.Component{
         return(
             <div className="section2">
                 <div className="main">
-                    <div className="left">
+                    <div className="left sec2Left">
                         <h1>WHO ARE WE?</h1>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci quae nesciunt officia! Autem, nam eum voluptatem, esse voluptatibus deleniti tempora laboriosam sequi pariatur, explicabo itaque. Fuga, deserunt? Repudiandae, neque qui.</p>
                     </div>

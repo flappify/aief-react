@@ -1,4 +1,5 @@
 import React from 'react';
+import {TweenLite, Power2} from 'gsap';
 import Navbar from './Navbar';
 
 import {connect} from 'react-redux';
@@ -15,16 +16,19 @@ import PhotoGallery from './gallery';
 import Footer from './footer';
 import Intro from './intro';
 
-import Loading from './loader';
 
 class Home extends React.Component{
-    state={
-        load:true
-    }
+    
     componentDidMount(){
         window.onload=function(){
             document.querySelector('.home').style.display="block";
             document.querySelector('.load').style.display="none";
+            const left = document.querySelector(".introLeft");
+            const introImageReveal = document.querySelector(".introImageReveal");
+            const introImage = document.querySelector(".introImage");
+            TweenLite.from(left,0.5, {x:-100,ease:Power2.easeInOut});
+            TweenLite.to(introImageReveal,1.4, {width:"0%",ease:Power2.easeInOut});
+            TweenLite.from(introImage,1.2, {transform:"scale(1.4)",ease:Power2.easeInOut,delay:0.2});
         }
     }
     render()
@@ -39,7 +43,7 @@ class Home extends React.Component{
                     </svg>
                 </div>
             </div>
-                <div className="home" style={{display:"none"}}>
+                <div className="home" style={{display:"none"}} id="home">
                 <Navbar/>
                 <Intro/>
                 <Section2/>
