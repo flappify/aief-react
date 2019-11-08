@@ -89,10 +89,10 @@ class NavBar extends React.Component{
                <li className="secondary-menu"><a href="/vision">Vision</a></li>
                <li className="secondary-menu"><a href="/apply" className="apply">Apply</a></li>
                <li className="secondary-menu"><a href="/donate" className="donate">Donate</a></li>
-               <li><a href="/works">Works</a></li>
                <li><a href="/events">Events</a></li>
                <li><a href="/campaign">Campaigns</a></li>
-               <li><a href="#helpdesk">Help Desk</a></li>
+               <li><a href="/gallery">Gallery</a></li>
+               <li><a href="/#helpdesk">Help Desk</a></li>
                <SignedIn/>
              </ul>
            </div>

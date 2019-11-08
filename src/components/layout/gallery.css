@@ -1,0 +1,19 @@
+.gallery{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 15vh;
+}
+.gallery h1{
+    width: 100%;
+    text-align: center;
+    margin: 50px 0;
+    font-size: 3rem;
+    font-family: 'Domine', serif;
+}
+
+@media screen and (max-width:680px){
+.gallery h1{
+    font-size: 2rem;
+}
+}

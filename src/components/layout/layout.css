@@ -169,27 +169,38 @@ li{
     }
 }
 .nomenu{
-    padding-top:10vh ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
     top: 10vh;
-    right: 0;
-    width:0%;
+    right: 5vw;
+    width: 25vw;
     height:0vh;
     background-color: #fff;
-    transition: width 500ms ease-out;
+    transition: height .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
     overflow: hidden;
     z-index: 99;
-    
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, .4);
 }
 .fullmenu{
-    height: 90vh;
-    width: 25%;
+    height: 55vh;
+}
+.nomenu ul{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top:10vh;
 }
 .nomenu ul li a{
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-family: 'Muli', sans-serif;
     color: #f58634;
     text-decoration: none;
+    width:100%;
 }
 .menu .menu-list ul li .hamburger-open:hover .line-1{
     animation-name:line-1-open;
@@ -269,6 +280,7 @@ li{
 }
 
 
+
 .navbarSmall .menu .menu-list ul li:nth-child(4) a{
     background-color: #f58634;
     color: #fff;
@@ -286,6 +298,9 @@ li{
 }
 .secondary-menu{
     display: none;
+}
+.nomenu ul li a:hover{
+    color: #ffebca;
 }
 @media screen and (max-width:680px)
 {
@@ -320,9 +335,13 @@ li{
     padding:0;
     border-radius: 5px;
 }
-.fullmenu{
-    height: 90vh;
+.nomenu{
     width: 70%;
+}
+.fullmenu{
+    height: 55vh;
+    width: 70%;
+    right: 15px;
 }
 .nomenu ul li a{
     font-size: 1.5rem;
@@ -381,6 +400,26 @@ li{
 }
 .intro .left .bottom a{
     text-decoration: none;
+}
+.intro .left .bottom a img{
+    transform: scale(0.9);
+    animation-name: intro;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes intro{
+    0%{
+        transform: scale(0.9);
+        transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
+    }
+    60%{
+        transform: scale(1.2);
+        transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
+    }
+    100%{
+        transform: scale(0.9);
+        transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
+    }
 }
 .intro .left .bottom span{
     margin-left: 20px;
@@ -720,8 +759,12 @@ li{
 .section3 .main .right img{
     height: 70vh;
     transform: translateY(-15px);
+    cursor: pointer;
 }
-
+.section3 .main .right img:hover{
+    transform: translateY(-15px) skew(15deg);
+    transition: transform .5s cubic-bezier(.29,1.42,.79,1) 0s,-webkit-transform .5s cubic-bezier(.29,1.42,.79,1) 0s;
+}
 @media screen and (max-width:1200px)
 {
 .section3{
@@ -810,13 +853,16 @@ li{
 .section4 .main .top h1{
     font-size: 3rem;
     font-family: 'Domine', serif;
+    animation-name: waw;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
 }
 .section4 .main .top p{
     font-size: 1.2rem;
     text-align: center;
     width: 80%;
     font-family: 'Muli', sans-serif;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 .section4 .main .bottom{
     margin: 20px 0;
@@ -938,6 +984,9 @@ li{
     text-align: center;
     padding: 1.5rem 0;
     font-family: 'Domine', serif;
+    animation-name: waw;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
 }
 .events .event-list{
     height: 80%;
@@ -993,6 +1042,7 @@ li{
     color: #604338;
     font-family: 'Open Sans', sans-serif;
     box-shadow: none;
+    animation: none;
 }
 
 .event .event-details p{
@@ -1108,7 +1158,7 @@ li{
 .helpdesk{
     margin: 50px 0;
     width: 100%;
-    height: 80vh;
+    height:100vh;
     background-color: #F6F6F6;
     display: flex;
     flex-direction: row;
@@ -1119,7 +1169,7 @@ li{
 
 .helpdesk .main{
     width: 80%;
-    height: 80%;
+    height: 70%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -1485,6 +1535,9 @@ textarea::-webkit-scrollbar-thumb{
 .supporter .main h1{
     font-size: 3rem;
     font-family: 'Domine', serif;
+    animation-name: waw;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
 }
 
 .supporter .main .cards{
@@ -1519,6 +1572,7 @@ textarea::-webkit-scrollbar-thumb{
 }
 .supporter .main .cards .card .card-creator h1{
     font-size: 1rem;
+    animation: none;
 }
 .supporter .main .cards .card .card-creator img{
     width:65px;
@@ -1593,27 +1647,8 @@ textarea::-webkit-scrollbar-thumb{
     }
 }
 
-/*PHOTO GALLERY*/
+/*PHOTO GALLERY PREVIEW*/
 
-.gallery{
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-image: linear-gradient(to bottom,#f6f6f6,#fff,#f6f6f6);
-}
-.gallery h1{
-    width: 100%;
-    text-align: center;
-    margin: 50px 0;
-    font-size: 3rem;
-    font-family: 'Domine', serif;
-}
-
-@media screen and (max-width:680px){
-.gallery h1{
-    font-size: 2rem;
-}
-}
 
 /*FOOTER*/
 

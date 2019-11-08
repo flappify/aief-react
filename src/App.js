@@ -11,6 +11,7 @@ import CreateEvent from './components/events/eventCreate';
 import Apply from './components/layout/apply';
 import Donation from './components/layout/donation';
 import Vision from './components/layout/vision';
+import PhotoGallery from './components/layout/gallery';
 import './App.css';
 class App extends React.Component{
   render(){
@@ -20,6 +21,7 @@ class App extends React.Component{
         <Route exact path="/" component={Home} />
         <Route exact path="/vision" component={Vision} />
         <Route exact path="/apply" component={Apply} />
+        <Route exact path="/gallery" component={PhotoGallery} />
         <Route exact path="/donate" component={Donation} />
         <Route exact path="/urna" component={SignIn} />
         <Route exact path="/events/:id" component={EventDetails} />

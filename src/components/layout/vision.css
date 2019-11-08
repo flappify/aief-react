@@ -20,6 +20,7 @@
 
 .vision-container .vision-wwa .image{
     width: 80%;
+    position: relative;
 }
 
 .vision-container .vision-wwa .image img{
@@ -28,7 +29,13 @@
     border-top-left-radius: 50px;
     border-bottom-right-radius: 50px;
 }
-
+.vision-container .vision-wwa .image .visionImageReveal{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
 .vision-container .vision-wwa .details{
     width: 80%;
     height: 100%;

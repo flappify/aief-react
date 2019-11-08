@@ -1,4 +1,5 @@
 import React from 'react';
+import {TweenLite, Power2} from 'gsap';
 import NavBar from './Navbar';
 import Footer from './footer';
 import './vision.css'
@@ -7,6 +8,12 @@ class Vision extends React.Component{
         window.onload=function(){
             document.querySelector('.vision').style.display="block";
             document.querySelector('.load').style.display="none";
+            const right = document.querySelector(".wwa-details");
+            const visionImageReveal = document.querySelector(".visionImageReveal");
+            const wwaImage = document.querySelector(".wwa-image");
+            TweenLite.from(right,1, {x:100,ease:Power2.easeInOut});
+            TweenLite.to(visionImageReveal,1.4, {width:"0%",ease:Power2.easeInOut});
+            TweenLite.from(wwaImage,1.2, {transform:"scale(1.4)",ease:Power2.easeInOut,delay:0.2});
         }
     }
     render()
@@ -24,10 +31,11 @@ class Vision extends React.Component{
                     <NavBar/>
                     <div className="vision-container">
                         <div className="vision-wwa">
-                            <div className="image">
+                            <div className="image wwa-image">
+                                <div className="visionImageReveal"></div>
                                 <img src="https://baptistandreflector.org/wp-content/uploads/2017/02/Cooperation-e1487254527462.jpg" />
                             </div>
-                            <div className="details">
+                            <div className="details wwa-details">
                                 <h5>Since<span>2019</span></h5>
                                 <h1>About AIEF</h1>
                                 <p>We see equal value in all lives. And so we are dedicated to improving the quality of life for individuals around the world. From the education of students in Chicago, to the health of a young mother in Nigeria, we are catalysts of human promise everywhere.</p>
