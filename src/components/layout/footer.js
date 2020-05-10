@@ -47,7 +47,7 @@ class Footer extends React.Component{
                     </div>
                 </div>
                 <div className="cr">
-                    <h1>&copy; 2019 AIEF. All rights reserved. | Developed & maintained with <a href="https://www.flappify.com" target="_blank" rel="noopener noreferrer"><i className="fas fa-heart"></i></a> by Flappify</h1>
+                    <h1>&copy; 2019 AIEF. All rights reserved.</h1>
                 </div>
             </div>
         )

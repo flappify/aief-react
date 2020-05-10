@@ -134,12 +134,12 @@ const mapStateToProps=(state)=>{
     }
   }
   
-  export default compose(
-    connect(mapStateToProps),
-    firestoreConnect([
-        {collection:'forms',orderBy:['createdAt','desc']},
-        {collection:'donations'},
-        {collection:'helpDesk'},
-        {collection:'events',limit:1,orderBy:['createdAt','desc']},
-    ])
-  )(Preview)
+export default compose(
+connect(mapStateToProps),
+firestoreConnect([
+    {collection:'forms',orderBy:['createdAt','desc']},
+    {collection:'donations'},
+    {collection:'helpDesk'},
+    {collection:'events',limit:1,orderBy:['createdAt','desc']},
+])
+)(Preview)

@@ -15,7 +15,7 @@ class Section2 extends React.Component{
                             <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0ODUwMjQ0NjIwNzI0MDAx/chris-hemsworth-poses-during-a-photo-call-for-thor-ragnarok-on-october-15-2017-in-sydney-australia-photo-by-mark-metcalfe_getty-images-for-disney-square.jpg" />
                         </div>
                         <div className="images">
-                            <img src="http://i0.wp.com/www.owlguru.com/wp-content/uploads/wpallimport/files/Actors/__(2).jpg" />
+                            <img src="https://i0.wp.com/www.owlguru.com/wp-content/uploads/wpallimport/files/Actors/__(2).jpg" />
                         </div>
                         <div className="images">
                             <img src="https://d.newsweek.com/en/full/814586/worlds-highest-paid-actors.jpg?w=1600&h=1600&q=88&f=71b170c55f9bfa0522150dfc060a3ff9" />

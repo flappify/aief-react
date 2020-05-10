@@ -140,7 +140,7 @@ const mapStateToProps=(state)=>{
       donations:state.firestore.ordered.donations,
     }
   }
-  
+
   export default compose(
     connect(mapStateToProps),
     firestoreConnect([

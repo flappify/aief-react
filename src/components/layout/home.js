@@ -52,7 +52,7 @@ class Home extends React.Component{
                 <Events events={events}/>
                 <HelpDesk/>
                 <SupportSpeak/>
-                <GalleryPreview/>
+                {/* <GalleryPreview/> */}
                 <Footer/>
             </div>
             </div>
